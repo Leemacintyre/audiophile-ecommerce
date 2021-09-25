@@ -4,7 +4,7 @@ import { ShoppingCart } from "../shoppingCart/shoppingCart.component";
 
 import "./header.styles.scss";
 
-export default function Header() {
+export const Header = () => {
     return (
         <div className="containerHeader">
             <div>
@@ -16,4 +16,4 @@ export default function Header() {
             </div>
         </div>
     );
-}
+};

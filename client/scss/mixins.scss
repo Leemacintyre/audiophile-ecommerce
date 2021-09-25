@@ -2,16 +2,19 @@
     font-size: 5.6rem;
     text-transform: uppercase;
     font-weight: 700;
+    line-height: 4rem;
 }
 @mixin h2 {
     font-size: 4rem;
     text-transform: uppercase;
     font-weight: 700;
+    line-height: 4rem;
 }
 @mixin h3 {
-    font-size: 3.2rem;
+    font-size: 3.6rem;
     text-transform: uppercase;
     font-weight: 700;
+    line-height: 4rem;
 }
 
 @mixin h4 {
@@ -28,4 +31,12 @@
     font-size: 1.8rem;
     text-transform: uppercase;
     font-weight: 700;
+}
+
+@mixin overline {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.9rem;
+    letter-spacing: 1rem;
 }
