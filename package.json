@@ -1,0 +1,26 @@
+{
+    "name": "audiophile-ecommerce",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "install-server": "yarn --prefix server",
+        "install-client": "yarn --prefix client",
+        "server": "yarn watch --prefix server",
+        "client": "yarn start --prefix client",
+        "watch": "concurrently \"yarn server\" \"yarn client\"",
+        "deploy": "yarn build --prefix client && yarn start --prefix server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Leemacintyre/audiophile-ecommerce.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Leemacintyre/audiophile-ecommerce/issues"
+    },
+    "homepage": "https://github.com/Leemacintyre/audiophile-ecommerce#readme"
+}

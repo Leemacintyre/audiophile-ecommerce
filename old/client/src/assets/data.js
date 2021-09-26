@@ -4,6 +4,13 @@ export const HOME_DATA = {
             imageHeader: require("../assets/home/mobile/image-header.jpg"),
         },
     },
+    section2: {
+        mobile: {
+            image1: require("../assets/shared/desktop/image-category-thumbnail-headphones.png"),
+            image2: require("../assets/shared/desktop/image-category-thumbnail-earphones.png"),
+            image3: require("../assets/shared/desktop/image-category-thumbnail-speakers.png"),
+        },
+    },
 };
 
 export const ALL_DATA = [

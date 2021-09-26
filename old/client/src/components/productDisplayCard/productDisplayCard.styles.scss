@@ -1,0 +1,47 @@
+@use "scss/variables";
+@use "scss/mixins";
+
+.productDisplayCard {
+    // border: 2px solid red;
+    width: 100%;
+    height: 21rem;
+    display: flex;
+    justify-content: center;
+    .productDisplayCard-content {
+        border: 0px solid red;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        .productDisplayCard-background {
+            background-color: variables.$lightGrey;
+            border-radius: 10px;
+            position: absolute;
+            z-index: -1;
+            transform: translateY(-7rem);
+            height: 16.5rem;
+            width: 100%;
+        }
+        .productDisplayCard-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .productDisplayCard-shop {
+            text-transform: uppercase;
+            font-size: 1.3rem;
+        }
+
+        img {
+            width: 8rem;
+            height: 11rem;
+            margin-right: 0.5rem;
+        }
+        span {
+            font-size: 1.8rem;
+            padding-top: 1rem;
+            margin-left: 0.5rem;
+            color: variables.$orange;
+        }
+    }
+}
