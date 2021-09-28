@@ -1,6 +1,7 @@
 const {
     createNewProduct,
     getAllShopData,
+    addNewProductItem,
 } = require("../../models/shopData/shopData.model");
 
 const ShopData = require("../../models/shopData/shopData.mongo");
@@ -26,4 +27,18 @@ async function httpCreateProduct(req, res) {
     }
 }
 
-module.exports = { httpGetAllShopData, httpCreateProduct };
+async function httpAddNewProductItem(req, res) {
+    try {
+        return res.status(201).json(await addNewProductItem(req));
+    } catch (error) {
+        return res
+            .status(400)
+            .json({ error: error, location: "createNewProductItem" });
+    }
+}
+
+module.exports = {
+    httpGetAllShopData,
+    httpCreateProduct,
+    httpAddNewProductItem,
+};

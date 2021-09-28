@@ -16,6 +16,16 @@ content-type: application/json
             }
         ]
 }
+###
+
+POST http://localhost:8000/v1/shopData/addProductItem
+content-type: application/json
+
+{
+    "name": "testnadgfhfgme1",
+    "imageUrl": "ghdgfh",
+    "price": 2 
+}
 
 ###
 POST http://localhost:8000/posts/new 

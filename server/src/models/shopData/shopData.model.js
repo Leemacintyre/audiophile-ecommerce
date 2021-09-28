@@ -2,17 +2,13 @@ const { find } = require("./shopData.mongo");
 const ShopData = require("./shopData.mongo");
 
 async function createNewProduct(req, res) {
-    const product = req.body.product;
-    const routeName = req.body.routeName;
-    const items = req.body.items;
-
     try {
         const newProduct = new ShopData({
             product: req.body.product,
             routeName: req.body.routeName,
             items: req.body.items,
         });
-        // checkExistingProducts(product, routeName, items);
+
         return await newProduct.save();
     } catch (error) {
         console.log(`could not save new product ${error}`);
@@ -27,22 +23,26 @@ async function getAllShopData(req, res) {
     }
 }
 
-// async function checkExistingProducts(product, routeName, items) {
-//     try {
-//         const matchingProducts = await ShopData.find({
-//             product: product,
-//             routeName: routeName,
-//         });
-//         if (matchingProducts) {
-//             console.log("found products");
-//             const itemData = await ShopData.find(routeName);
-//             console.log(itemData);
-//         } else {
-//             console.log("no products");
-//         }
-//     } catch (error) {
-//         console.log(`unable to check for existing products ${error}`);
-//     }
-// }
+async function addNewProductItem(req, res) {
+    //  name: req.body.name,
+    //                     imageUrl: req.body.imageUrl,
+    //                     price: req.body.price,
+    try {
+        return ShopData.findByIdAndUpdate(
+            { _id: "61536364747507d28e68097a" },
+            {
+                $addToSet: {
+                    items: {
+                        name: req.body.name,
+                        imageUrl: req.body.imageUrl,
+                        price: req.body.price,
+                    },
+                },
+            }
+        );
+    } catch (error) {
+        console.log(`unable to add new product item ${error}`);
+    }
+}
 
-module.exports = { createNewProduct, getAllShopData };
+module.exports = { createNewProduct, getAllShopData, addNewProductItem };

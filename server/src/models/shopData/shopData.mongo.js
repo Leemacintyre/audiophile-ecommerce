@@ -15,9 +15,9 @@ const shopDataSchema = new mongoose.Schema({
     },
     items: [
         {
-            name: { type: String, trim: true },
-            imageUrl: { type: String, trim: true },
-            price: { type: Number, trim: true },
+            name: { type: String, trim: true, unique: true },
+            imageUrl: { type: String, trim: true, unique: true },
+            price: { type: Number, trim: true, unique: true },
         },
     ],
 });
