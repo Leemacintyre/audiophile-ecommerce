@@ -1,0 +1,26 @@
+GET http://localhost:8000/v1/shopData
+
+###
+
+POST http://localhost:8000/v1/shopData/createProduct
+content-type: application/json
+
+{
+    "product": "test",
+    "routeName": "headphones",
+    "items":[
+            {
+                "name": "testname",
+                "imageUrl": "testimage",
+                "price": "20" 
+            }
+        ]
+}
+
+###
+POST http://localhost:8000/posts/new 
+content-type: application/json
+
+{
+    "firstName": "sample fname"
+}
