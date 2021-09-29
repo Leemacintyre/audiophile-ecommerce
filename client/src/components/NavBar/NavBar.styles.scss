@@ -1,0 +1,19 @@
+.NavBar-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    .NavBar-logo {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .NavBar-nav {
+        display: flex;
+        align-items: center;
+
+        .NavBar-link {
+            margin: 0 10px;
+        }
+    }
+}

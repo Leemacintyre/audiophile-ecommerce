@@ -25,6 +25,7 @@
     },
     "homepage": "https://github.com/Leemacintyre/audiophile-ecommerce#readme",
     "dependencies": {
+        "axios": "^0.21.4",
         "concurrently": "^6.2.1"
     }
 }
