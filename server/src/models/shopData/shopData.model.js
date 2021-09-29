@@ -29,7 +29,7 @@ async function addNewProductItem(req, res) {
     //                     price: req.body.price,
     try {
         return ShopData.findByIdAndUpdate(
-            { _id: "61536364747507d28e68097a" },
+            { _id: "6153efbb03c8b54f4e7216de" },
             {
                 $addToSet: {
                     items: {

@@ -1,36 +1,43 @@
+# GET ALL SHOP DATA
 GET http://localhost:8000/v1/shopData
 
 ###
 
+# POST NEW PRODUCT TO SHOP DATA
 POST http://localhost:8000/v1/shopData/createProduct
 content-type: application/json
 
 {
-    "product": "test",
-    "routeName": "headphones",
-    "items":[
+     "product": "Headphones",
+        "routeName": "headphones",
+        "items": [
             {
-                "name": "testname",
-                "imageUrl": "testimage",
-                "price": "20" 
-            }
+                "name": "Gold Headphones",
+                "imageUrl": "https://i.ibb.co/FxXvNJ7/image-product.jpg",
+                "price": 25
+             },
+            {
+                "name": "White Headphones",
+                "imageUrl": "https://i.ibb.co/Rgp4DQs/image-category-page-preview.jpg",
+                "price": 18
+             },
+            {
+                "name": "Black Headphones",
+                "imageUrl": "https://i.ibb.co/6n7KFyP/image-category-page-preview.jpg",
+                "price": 35
+             }
         ]
 }
+
 ###
 
+# POST NEW PRODUCT ITEM
 POST http://localhost:8000/v1/shopData/addProductItem
 content-type: application/json
 
 {
-    "name": "testnadgfhfgme1",
-    "imageUrl": "ghdgfh",
-    "price": 2 
+    "name": "Black Headphones",
+    "imageUrl": "https://i.ibb.co/6n7KFyP/image-category-page-preview.jpg",
+    "price": 35
 }
 
-###
-POST http://localhost:8000/posts/new 
-content-type: application/json
-
-{
-    "firstName": "sample fname"
-}
