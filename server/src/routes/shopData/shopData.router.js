@@ -1,4 +1,5 @@
 const express = require("express");
+const { checkLoggedIn } = require("../../middleware/checkLoggedIn");
 
 const {
     httpGetAllShopData,
@@ -9,7 +10,7 @@ const {
 const shopDataRouter = express.Router();
 
 shopDataRouter.get("/", httpGetAllShopData);
-shopDataRouter.post("/createProduct", httpCreateProduct);
-shopDataRouter.post("/addProductItem", httpAddNewProductItem);
+shopDataRouter.post("/createProduct", checkLoggedIn, httpCreateProduct);
+shopDataRouter.post("/addProductItem", checkLoggedIn, httpAddNewProductItem);
 
 module.exports = shopDataRouter;

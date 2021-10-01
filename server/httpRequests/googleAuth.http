@@ -1,0 +1,7 @@
+GET https://localhost:8000/v1/auth/google
+
+###
+GET https://localhost:8000/v1/auth/google/callback
+
+###
+GET https://localhost:8000/v1/auth/logout
