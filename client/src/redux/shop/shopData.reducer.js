@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 export const shopReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case shopDataActionTypes.GET_SHOP_DATA:
+        case shopDataActionTypes.FETCH_SHOP_DATA_SUCCESS:
             return {
                 ...state,
                 shopData: action.payload,
