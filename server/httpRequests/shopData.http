@@ -1,10 +1,10 @@
 # GET ALL SHOP DATA
-GET http://localhost:8000/v1/shopData
+GET https://localhost:8000/v1/shopData
 
 ###
 
 # POST NEW PRODUCT TO SHOP DATA
-POST http://localhost:8000/v1/shopData/createProduct
+POST https://localhost:8000/v1/shopData/createProduct
 content-type: application/json
 
 {
@@ -32,7 +32,7 @@ content-type: application/json
 ###
 
 # POST NEW PRODUCT ITEM
-POST http://localhost:8000/v1/shopData/addProductItem
+POST https://localhost:8000/v1/shopData/addProductItem
 content-type: application/json
 
 {

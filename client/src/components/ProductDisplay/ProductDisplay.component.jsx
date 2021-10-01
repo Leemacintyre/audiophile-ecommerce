@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchShopDataStart } from '../../redux/shop/shopData.actions'
 import { selectShopData } from '../../redux/shop/shopData.selectors'
+import ProductDisplayCard from '../ProductDisplayCard/ProductDisplayCard.component'
 
 const ProductDisplay = ({ shopData, getShopData }) => {
 
@@ -9,23 +10,11 @@ const ProductDisplay = ({ shopData, getShopData }) => {
         getShopData()
     }, [getShopData])
 
-    shopData && console.log("test", shopData);
+    shopData && console.log("ProductDisplay", shopData);
 
     return (shopData &&
         <div>
-            {
-                <div>
-                    {shopData.map((data) => {
-                        return (
-                            <div key={data._id}>
-                                <div>{data.product}</div>
-                                <div>{data.items.map((item) => (<div key={item._id}>{item.name}</div>))}</div>
-                            </div>
-                        )
-                    })
-                    }
-                </div>
-            }
+            <ProductDisplayCard shopData={shopData} />
         </div>
     )
 }

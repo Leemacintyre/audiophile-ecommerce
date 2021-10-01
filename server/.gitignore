@@ -6,6 +6,10 @@
 .pnp.js
 .env
 
+*.pem
+cert.pem
+key.pem
+
 # testing
 /coverage
 
