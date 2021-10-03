@@ -4,8 +4,15 @@ const passport = require("passport");
 // save session to cookie
 function serializeGoogleUser() {
     passport.serializeUser(async (currentUser, done) => {
-        const { sub, given_name, family_name, picture, email } = currentUser;
-        console.log("lee user", currentUser);
+        done(null, currentUser);
+    });
+}
+
+// read session from cookie
+function deserializeGoogleUser() {
+    passport.deserializeUser(async (obj, done) => {
+        const { sub, given_name, family_name, picture, email } = obj;
+        console.log("lee user", obj);
         const doesUserExit = await User.exists({ _id: sub });
         if (!doesUserExit) {
             try {
@@ -21,13 +28,7 @@ function serializeGoogleUser() {
                 console.log("could not save user");
             }
         }
-        done(null, currentUser);
-    });
-}
 
-// read session from cookie
-function deserializeGoogleUser() {
-    passport.deserializeUser(async (obj, done) => {
         done(null, obj);
     });
 }

@@ -4,23 +4,17 @@ const {
     signInWithGoogleStart,
     signInWithGoogleCallback,
 } = require("../../middleware/googleAuthFlow");
-const passport = require("passport");
+const { redirectToHome } = require("./googleAuth.controller");
 
 const googleAuthRouter = express.Router();
 
 googleAuthRouter.get("/auth/google", signInWithGoogleStart());
 
-googleAuthRouter.get(
-    "/auth/google/callback",
-    signInWithGoogleCallback(),
-    (req, res) => {
-        console.log("google called us back", res);
-    }
-);
+googleAuthRouter.get("/auth/google/callback", signInWithGoogleCallback());
 
 googleAuthRouter.get("/logout", (req, res) => {
     req.logOut();
-    return res.redirect("http://localhost:3000");
+    redirectToHome(req, res);
 });
 
 googleAuthRouter.get("/checklog", checkLoggedIn, (req, res) => {
