@@ -1,4 +1,3 @@
-const { find } = require("./shopData.mongo");
 const ShopData = require("./shopData.mongo");
 
 async function createNewProduct(req, res) {

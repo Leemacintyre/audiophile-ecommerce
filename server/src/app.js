@@ -5,9 +5,12 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 
 const api = require("./routes/api");
+const { authFlow } = require("./services/authFlow");
 
 const app = express();
 app.use(helmet());
+// auth flow for social sign in (google)
+authFlow(app);
 
 app.use(
     cors({
@@ -18,8 +21,6 @@ app.use(
 app.use(morgan("combined"));
 
 app.use(express.json());
-
-app.use();
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 

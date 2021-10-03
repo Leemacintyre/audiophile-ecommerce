@@ -5,7 +5,7 @@ const shopDataRouter = require("./shopData/shopData.router");
 
 const api = express.Router();
 
-api.use("/auth", googleAuthRouter);
+api.use("/", googleAuthRouter);
 api.use("/shopData", shopDataRouter);
 
 module.exports = api;

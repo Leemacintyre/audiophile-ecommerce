@@ -1,5 +1,6 @@
-export function checkLoggedIn(req, res, next) {
-    const isLoggedIn = true; //TODO
+function checkLoggedIn(req, res, next) {
+    const isLoggedIn = req.isAuthenticated() && req.user;
+    // console.log(req.user);
     if (!isLoggedIn) {
         return res.status(401).json({
             error: "You must log in",
@@ -7,3 +8,5 @@ export function checkLoggedIn(req, res, next) {
     }
     next();
 }
+
+module.exports = { checkLoggedIn };

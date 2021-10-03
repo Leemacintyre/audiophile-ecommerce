@@ -15,6 +15,9 @@ const ProductDisplay = ({ shopData, getShopData }) => {
     return (shopData &&
         <div>
             <ProductDisplayCard shopData={shopData} />
+            <a href="https://localhost:8000/v1/auth/google">login </a>
+            <a href="https://localhost:8000/v1/checklog"> check log </a>
+            <a href="https://localhost:8000/v1/logout"> logout</a>
         </div>
     )
 }
