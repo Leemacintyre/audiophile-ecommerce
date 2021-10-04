@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "cd ./server/src node server.js",
+        "heroku-postbuild": "cd ./server && npm install",
         "test": "echo \"Error: no test specified\" && exit 1",
         "install-server": "npm install --prefix server",
         "install-client": "npm install --prefix client",
