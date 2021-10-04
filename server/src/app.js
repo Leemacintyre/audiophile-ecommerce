@@ -12,7 +12,7 @@ const app = express();
 // app.use(helmet({ contentSecurityPolicy: false }));
 
 // auth flow for social sign in (google)
-authFlow(app);
+// authFlow(app);
 
 app.use(
     cors({
