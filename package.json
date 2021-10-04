@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "cd ./src && node server.js",
+        "start": "cd src && node server.js",
         "heroku-postbuild": "cd server",
         "test": "echo \"Error: no test specified\" && exit 1",
         "install-server": "npm install --prefix server",
