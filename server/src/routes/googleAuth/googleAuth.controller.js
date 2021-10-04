@@ -9,4 +9,4 @@ function redirectToHome(req, res) {
     return res.redirect("http://localhost:3000");
 }
 
-https: module.exports = { googleCallback, redirectToHome };
+module.exports = { googleCallback, redirectToHome };
