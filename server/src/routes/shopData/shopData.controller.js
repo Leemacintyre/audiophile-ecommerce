@@ -8,7 +8,6 @@ const ShopData = require("../../models/shopData/shopData.mongo");
 
 async function httpGetAllShopData(req, res) {
     try {
-        // const shopData = await getAllShopData();
         return res.status(200).json(await getAllShopData());
     } catch (error) {
         return res

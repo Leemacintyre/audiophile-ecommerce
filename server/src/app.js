@@ -8,7 +8,9 @@ const api = require("./routes/api");
 const { authFlow } = require("./services/authFlow");
 
 const app = express();
-app.use(helmet());
+
+app.use(helmet({ contentSecurityPolicy: false }));
+
 // auth flow for social sign in (google)
 authFlow(app);
 

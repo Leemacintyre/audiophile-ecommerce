@@ -3,7 +3,10 @@ function googleCallback(req, res) {
 }
 
 function redirectToHome(req, res) {
+    if (process.env.NODE_ENV === "production") {
+        return res.redirect("https://localhost:8000/");
+    }
     return res.redirect("http://localhost:3000");
 }
 
-module.exports = { googleCallback, redirectToHome };
+https: module.exports = { googleCallback, redirectToHome };

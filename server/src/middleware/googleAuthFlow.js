@@ -9,7 +9,7 @@ function signInWithGoogleStart() {
 function signInWithGoogleCallback() {
     return passport.authenticate("google", {
         failureRedirect: "/failure",
-        successRedirect: "http://localhost:3000/",
+        successRedirect: "https://localhost:8000/",
         session: true,
     });
 }

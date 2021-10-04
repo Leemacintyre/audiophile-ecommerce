@@ -15,7 +15,7 @@ function authFlow(app) {
     };
 
     const AUTH_OPTIONS = {
-        callbackURL: "/v1/auth/google/callback",
+        callbackURL: "/v1/google/auth/google/callback",
         clientID: config.CLIENT_ID,
         clientSecret: config.CLIENT_SECRET,
     };
@@ -28,38 +28,6 @@ function authFlow(app) {
     passport.use(new Strategy(AUTH_OPTIONS, verifyCallback));
     serializeGoogleUser();
     deserializeGoogleUser();
-    // // save session to cookie
-    // passport.serializeUser(async (currentUser, done) => {
-    //     console.log("lee user", currentUser);
-    //     const userId = currentUser.sub;
-    //     const fName = currentUser.given_name;
-    //     const lName = currentUser.family_name;
-    //     const picture = currentUser.picture;
-    //     const email = currentUser.email;
-    //     const doesUserExit = await User.exists({ _id: userId });
-    //     if (!doesUserExit) {
-    //         try {
-    //             const newUser = new User({
-    //                 _id: userId,
-    //                 fName: fName,
-    //                 lName: lName,
-    //                 profilePicture: picture,
-    //                 email: email,
-    //             });
-    //             await newUser.save();
-    //         } catch (error) {
-    //             console.log("could not save user");
-    //         }
-    //     }
-
-    //     done(null, currentUser);
-    // });
-
-    // const User = require("../models/user/userData.model");
-    // // read session from cookie
-    // passport.deserializeUser(async (obj, done) => {
-    //     done(null, obj);
-    // });
 
     app.use(
         cookieSession({
