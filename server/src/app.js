@@ -17,6 +17,7 @@ authFlow(app);
 app.use(
     cors({
         origin: "http://localhost:3000",
+        origin: "https://the-dealer-portal.herokuapp.com/",
     })
 );
 
