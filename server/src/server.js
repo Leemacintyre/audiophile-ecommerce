@@ -9,13 +9,7 @@ const { mongoConnect } = require("./services/mongo");
 
 const PORT = process.env.PORT || 8000;
 
-const server = https.createServer(
-    {
-        key: process.env.key,
-        cert: process.env.cert,
-    },
-    app
-);
+const server = https.createServer(app);
 // {
 //     key: fs.readFileSync("key.pem"),
 //     cert: fs.readFileSync("cert.pem"),
