@@ -5,7 +5,7 @@ const {
     httpGetAllShopData,
     httpCreateProduct,
     httpAddNewProductItem,
-} = require("./shopData.controller");
+} = require("./productCategory");
 
 const shopDataRouter = express.Router();
 

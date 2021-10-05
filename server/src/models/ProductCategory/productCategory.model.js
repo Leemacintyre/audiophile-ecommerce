@@ -1,8 +1,8 @@
-const ShopData = require("./shopData.mongo");
+const ProductCategory = require("./productCategory.mongo");
 
 async function createNewProduct(req, res) {
     try {
-        const newProduct = new ShopData({
+        const newProduct = new ProductCategory({
             product: req.body.product,
             routeName: req.body.routeName,
             items: req.body.items,
@@ -16,7 +16,7 @@ async function createNewProduct(req, res) {
 
 async function getAllShopData(req, res) {
     try {
-        return await ShopData.find();
+        return await ProductCategory.find();
     } catch (error) {
         console.log(`could not get shop data ${error}`);
     }
@@ -27,7 +27,7 @@ async function addNewProductItem(req, res) {
     //                     imageUrl: req.body.imageUrl,
     //                     price: req.body.price,
     try {
-        return ShopData.findByIdAndUpdate(
+        return ProductCategory.findByIdAndUpdate(
             { _id: "6153efbb03c8b54f4e7216de" },
             {
                 $addToSet: {

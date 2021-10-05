@@ -2,9 +2,9 @@ const {
     createNewProduct,
     getAllShopData,
     addNewProductItem,
-} = require("../../models/shopData/shopData.model");
+} = require("../../models/productCategory/productCategory.model");
 
-const ShopData = require("../../models/shopData/shopData.mongo");
+const ShopData = require("../../models/productCategory/productCategory.mongo");
 
 async function httpGetAllShopData(req, res) {
     try {

@@ -15,9 +15,9 @@ const ProductDisplay = ({ shopData, getShopData }) => {
     return (shopData &&
         <div>
             <ProductDisplayCard shopData={shopData} />
-            <a href="https://the-dealer-portal.herokuapp.com/v1/google/auth/google">login </a>
-            <a href="https://the-dealer-portal.herokuapp.com/v1/google/checklog"> check log </a>
-            <a href="https://the-dealer-portal.herokuapp.com/v1/google/logout"> logout</a>
+            <a href="http://localhost:8000/v1/google/auth/google">login </a>
+            <a href="http://localhost:8000/v1/google/checklog"> check log </a>
+            <a href="http://localhost:8000/v1/google/logout"> logout</a>
             <div>test</div>
         </div>
     )

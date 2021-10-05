@@ -25,8 +25,8 @@ function authFlow(app) {
 
     function verifyCallback(accessToken, refreshToken, profile, done) {
         // console.log("google profile", profile._json);
-        const { sub } = profile;
-        console.log(sub);
+        // const { sub } = profile;
+        // console.log(sub);
         done(null, profile._json);
     }
 
