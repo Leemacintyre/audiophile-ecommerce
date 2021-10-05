@@ -5,13 +5,22 @@ function signInWithGoogleStart() {
         scope: ["email", "profile"],
     });
 }
-
-function signInWithGoogleCallback() {
-    return passport.authenticate("google", {
-        failureRedirect: "/failure",
-        successRedirect: "https://localhost:8000/",
-        session: true,
-    });
+if (process.env.NODE_ENV === "production") {
+    function signInWithGoogleCallback() {
+        return passport.authenticate("google", {
+            failureRedirect: "/failure",
+            successRedirect: "https://the-dealer-portal.herokuapp.com/",
+            session: true,
+        });
+    }
+} else {
+    function signInWithGoogleCallback() {
+        return passport.authenticate("google", {
+            failureRedirect: "/failure",
+            successRedirect: "https://localhost:8000/",
+            session: true,
+        });
+    }
 }
 
 module.exports = { signInWithGoogleStart, signInWithGoogleCallback };
