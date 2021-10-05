@@ -15,7 +15,8 @@ function authFlow(app) {
     };
 
     const AUTH_OPTIONS = {
-        callbackURL: "/v1/google/auth/google/callback",
+        callbackURL:
+            "https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback",
         clientID: config.CLIENT_ID,
         clientSecret: config.CLIENT_SECRET,
     };
