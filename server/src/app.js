@@ -9,6 +9,9 @@ const { authFlow } = require("./services/authFlow");
 
 const app = express();
 
+// auth flow for social sign in (google)
+authFlow(app);
+
 // app.use(helmet({ contentSecurityPolicy: false }));
 
 app.use(
@@ -22,9 +25,6 @@ app.use(
 
 app.use(express.json());
 app.use(morgan("combined"));
-
-// auth flow for social sign in (google)
-authFlow(app);
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
