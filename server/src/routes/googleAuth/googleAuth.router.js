@@ -19,7 +19,7 @@ googleAuthRouter.get("/logout", (req, res) => {
 
 googleAuthRouter.get("/checklog", checkLoggedIn, (req, res) => {
     console.log(process.env);
-    return res.send("confirmed");
+    return res.send(process.env);
 });
 
 googleAuthRouter.get("/failure", (req, res) => {

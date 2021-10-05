@@ -11,19 +11,20 @@ const app = express();
 
 // app.use(helmet({ contentSecurityPolicy: false }));
 
-// auth flow for social sign in (google)
-authFlow(app);
-
 app.use(
     cors({
-        origin: "http://localhost:3000",
-        origin: "https://the-dealer-portal.herokuapp.com/",
+        origin: [
+            "https://the-dealer-portal.herokuapp.com/",
+            "http://localhost:3000",
+        ],
     })
 );
 
+app.use(express.json());
 app.use(morgan("combined"));
 
-app.use(express.json());
+// auth flow for social sign in (google)
+authFlow(app);
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
@@ -32,4 +33,5 @@ app.use("/v1", api);
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
+
 module.exports = app;

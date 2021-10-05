@@ -3,6 +3,7 @@ function googleCallback(req, res) {
 }
 
 function redirectToHome(req, res) {
+    console.log(process.env.NODE_ENV);
     if (process.env.NODE_ENV === "production") {
         return res.redirect("https://the-dealer-portal.herokuapp.com/");
     }

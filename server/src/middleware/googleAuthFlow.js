@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
     function signInWithGoogleCallback() {
         return passport.authenticate("google", {
             failureRedirect: "/failure",
-            successRedirect: "https://localhost:8000/",
+            successRedirect: "https://localhost:3000/",
             session: true,
         });
     }

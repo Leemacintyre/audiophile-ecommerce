@@ -16,15 +16,18 @@ function authFlow(app) {
 
     const AUTH_OPTIONS = {
         callbackURL:
-            process.env.NODE_ENV === "production"
-                ? "https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback"
-                : "/v1/google/auth/google/callback",
+            // :
+            //     process.env.NODE_ENV === "production"
+            //         "https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback"
+            "/v1/google/auth/google/callback",
         clientID: config.CLIENT_ID,
         clientSecret: config.CLIENT_SECRET,
     };
 
     function verifyCallback(accessToken, refreshToken, profile, done) {
         // console.log("google profile", profile._json);
+        const { sub } = profile;
+        console.log(sub);
         done(null, profile._json);
     }
 

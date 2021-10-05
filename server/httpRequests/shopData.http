@@ -1,5 +1,5 @@
 # GET ALL SHOP DATA
-GET https://localhost:8000/v1/shopData
+GET http://localhost:8000/v1/shopData
 
 ###
 

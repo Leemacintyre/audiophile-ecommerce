@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const shopDataSchema = new mongoose.Schema({
+    // userId: {
+    //     type: String,
+    //     trim: true,
+    //     required: true,
+    // },
     product: {
         type: String,
         required: true,
