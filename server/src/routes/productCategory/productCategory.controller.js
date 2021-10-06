@@ -1,16 +1,16 @@
 const {
     createNewProduct,
-    getAllShopData,
+    getAllProducts,
     addNewProductItem,
 } = require("../../models/productCategory/productCategory.model");
 
-async function httpGetAllShopData(req, res) {
+async function httpGetAllProducts(req, res) {
     try {
-        return res.status(200).json(await getAllShopData());
+        return res.status(200).json(await getAllProducts());
     } catch (error) {
         return res
             .status(400)
-            .json({ error: error, location: "httpGetAllShopData" });
+            .json({ error: error, location: "httpGetAllProducts" });
     }
 }
 
@@ -35,7 +35,7 @@ async function httpAddNewProductItem(req, res) {
 }
 
 module.exports = {
-    httpGetAllShopData,
+    httpGetAllProducts,
     httpCreateProduct,
     httpAddNewProductItem,
 };

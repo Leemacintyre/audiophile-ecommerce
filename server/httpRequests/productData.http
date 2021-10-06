@@ -1,0 +1,51 @@
+# GET ALL PRODUCT DATA
+GET http://localhost:8000/v1/products
+
+###
+
+# create new productItem
+POST http://localhost:8000/v1/productItem/createProductItem
+content-type: application/json
+
+{
+    "userId": "113577393364732277603",
+    "ProductCategoryId":"615daecd7b17d504c37ba085",
+    "itemName": "Headphones",
+    "imageUrl": "headphones",   
+    "price": 123
+}
+
+###
+
+# get all product items for a user
+GET http://localhost:8000/v1/productItem/
+content-type: application/json
+
+{
+    "userId": "113577393364732277603"
+}
+
+###
+
+# create new product
+POST http://localhost:8000/v1/products/createProduct
+content-type: application/json
+
+{
+    "userId":"113577393364732277603",
+    "product": "Headphones",
+    "routeName": "headphones"   
+}
+
+###
+
+# get all products for a user
+GET http://localhost:8000/v1/productItem/
+content-type: application/json
+
+{
+    "userId": "113577393364732277603"
+}
+
+###
+

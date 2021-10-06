@@ -7,7 +7,7 @@ const productItemRouter = require("./productItem/productItem.router");
 const api = express.Router();
 
 api.use("/google", googleAuthRouter);
-api.use("/shopData", productCategoryRouter);
+api.use("/products", productCategoryRouter);
 api.use("/productItem", productItemRouter);
 
 module.exports = api;

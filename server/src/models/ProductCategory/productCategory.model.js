@@ -14,35 +14,35 @@ async function createNewProduct(req, res) {
     }
 }
 
-async function getAllShopData(req, res) {
+async function getAllProducts(req, res) {
     try {
-        // const userId = req.body.userId;{ userId: userId }
-        return await ProductCategory.find();
+        const userId = req.body.userId;
+        return await ProductCategory.find({ userId: userId });
     } catch (error) {
         console.log(`could not get shop data ${error}`);
     }
 }
 
 async function addNewProductItem(req, res) {
-    //  name: req.body.name,
-    //                     imageUrl: req.body.imageUrl,
-    //                     price: req.body.price,
+    //     //  name: req.body.name,
+    //     //                     imageUrl: req.body.imageUrl,
+    //     //                     price: req.body.price,
     try {
-        return ProductCategory.findByIdAndUpdate(
-            { _id: "6153efbb03c8b54f4e7216de" },
-            {
-                $addToSet: {
-                    items: {
-                        name: req.body.name,
-                        imageUrl: req.body.imageUrl,
-                        price: req.body.price,
-                    },
-                },
-            }
-        );
+        //         return ProductCategory.findByIdAndUpdate(
+        //             { _id: "6153efbb03c8b54f4e7216de" },
+        //             {
+        //                 $addToSet: {
+        //                     items: {
+        //                         name: req.body.name,
+        //                         imageUrl: req.body.imageUrl,
+        //                         price: req.body.price,
+        //                     },
+        //                 },
+        //             }
+        //         );
     } catch (error) {
-        console.log(`unable to add new product item ${error}`);
+        //         console.log(`unable to add new product item ${error}`);
     }
 }
 
-module.exports = { createNewProduct, getAllShopData, addNewProductItem };
+module.exports = { createNewProduct, getAllProducts, addNewProductItem };
