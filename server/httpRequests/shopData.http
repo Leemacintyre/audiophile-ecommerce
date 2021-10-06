@@ -3,6 +3,31 @@ GET http://localhost:8000/v1/shopData
 
 ###
 
+POST http://localhost:8000/v1/productItem/createProductItem
+content-type: application/json
+
+{
+    "userId": "118295492116101397634",
+    "ProductCategoryId":"615d2c3b472f0de3cf8880d1",
+    "itemName": "Headphones",
+    "imageUrl": "headphones",   
+    "price": 123
+}
+
+###
+
+POST http://localhost:8000/v1/shopData/createProduct
+content-type: application/json
+
+{
+    "userId":"118295492116101397634",
+    "product": "Headphones",
+    "routeName": "headphones"   
+}
+###
+
+
+
 # POST NEW PRODUCT TO SHOP DATA
 POST https://localhost:8000/v1/shopData/createProduct
 content-type: application/json

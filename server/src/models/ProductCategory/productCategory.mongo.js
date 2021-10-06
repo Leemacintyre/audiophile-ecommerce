@@ -10,13 +10,13 @@ const productCategorySchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true,
+        // unique: true,
     },
     routeName: {
         type: String,
         required: true,
         trim: true,
-        unique: true,
+        // unique: true,
     },
     // items: [
     //     {

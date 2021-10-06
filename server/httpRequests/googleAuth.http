@@ -1,13 +1,13 @@
-GET https://localhost:8000/v1/auth/google
+GET http://localhost:8000/v1/auth/google
 
 ###
-GET https://localhost:8000/v1/checklog
+GET http://localhost:8000/v1/checklog
 
 ###
-GET https://localhost:8000/v1/auth/failure
+GET http://localhost:8000/v1/auth/failure
 
 ###
-GET https://localhost:8000/v1/auth/google/callback
+GET http://localhost:8000/v1/auth/google/callback
 
 ###
-GET https://localhost:8000/v1/logout
+GET http://localhost:8000/v1/logout

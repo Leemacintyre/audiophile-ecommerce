@@ -5,12 +5,12 @@ const {
     httpGetAllShopData,
     httpCreateProduct,
     httpAddNewProductItem,
-} = require("./productCategory");
+} = require("./productCategory.controller");
 
 const shopDataRouter = express.Router();
 
 shopDataRouter.get("/", httpGetAllShopData);
-shopDataRouter.post("/createProduct", checkLoggedIn, httpCreateProduct);
-shopDataRouter.post("/addProductItem", checkLoggedIn, httpAddNewProductItem);
+shopDataRouter.post("/createProduct", httpCreateProduct);
+shopDataRouter.post("/addProductItem", httpAddNewProductItem);
 
 module.exports = shopDataRouter;

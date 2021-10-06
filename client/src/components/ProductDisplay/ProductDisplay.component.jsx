@@ -10,11 +10,12 @@ const ProductDisplay = ({ shopData, getShopData }) => {
         getShopData()
     }, [getShopData])
 
-    shopData && console.log("ProductDisplay", shopData);
+    // shopData && console.log("ProductDisplay", shopData);
 
-    return (shopData &&
+    return (
+        // shopData &&
         <div>
-            <ProductDisplayCard shopData={shopData} />
+            {/* <ProductDisplayCard shopData={shopData} /> */}
             <a href="http://localhost:8000/v1/google/auth/google">login </a>
             <a href="http://localhost:8000/v1/google/checklog"> check log </a>
             <a href="http://localhost:8000/v1/google/logout"> logout</a>

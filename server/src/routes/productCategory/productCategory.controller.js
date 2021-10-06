@@ -4,8 +4,6 @@ const {
     addNewProductItem,
 } = require("../../models/productCategory/productCategory.model");
 
-const ShopData = require("../../models/productCategory/productCategory.mongo");
-
 async function httpGetAllShopData(req, res) {
     try {
         return res.status(200).json(await getAllShopData());

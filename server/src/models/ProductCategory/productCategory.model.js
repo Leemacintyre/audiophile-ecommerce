@@ -5,7 +5,7 @@ async function createNewProduct(req, res) {
         const newProduct = new ProductCategory({
             product: req.body.product,
             routeName: req.body.routeName,
-            items: req.body.items,
+            userId: req.body.userId,
         });
 
         return await newProduct.save();
@@ -16,6 +16,7 @@ async function createNewProduct(req, res) {
 
 async function getAllShopData(req, res) {
     try {
+        // const userId = req.body.userId;{ userId: userId }
         return await ProductCategory.find();
     } catch (error) {
         console.log(`could not get shop data ${error}`);

@@ -18,7 +18,7 @@ function authFlow(app) {
         callbackURL:
             process.env.NODE_ENV === "production"
                 ? "https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback"
-                : "/v1/google/auth/google/callback",
+                : "http://localhost:8000/v1/google/auth/google/callback",
         clientID: config.CLIENT_ID,
         clientSecret: config.CLIENT_SECRET,
     };
