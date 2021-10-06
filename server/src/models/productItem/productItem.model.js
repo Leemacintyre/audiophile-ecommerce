@@ -17,4 +17,13 @@ async function createNewItem(req, res) {
     }
 }
 
-module.exports = { createNewItem };
+async function getAllProductItems(req, res) {
+    try {
+        // const userId = req.body.userId;{ userId: userId }
+        return await ProductItem.find();
+    } catch (error) {
+        console.log(`could not get shop data ${error}`);
+    }
+}
+
+module.exports = { createNewItem, getAllProductItems };
