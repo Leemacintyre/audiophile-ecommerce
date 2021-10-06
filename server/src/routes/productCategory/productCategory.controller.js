@@ -6,7 +6,7 @@ const {
 
 async function httpGetAllProducts(req, res) {
     try {
-        return res.status(200).json(await getAllProducts());
+        return res.status(200).json(await getAllProducts(req));
     } catch (error) {
         return res
             .status(400)

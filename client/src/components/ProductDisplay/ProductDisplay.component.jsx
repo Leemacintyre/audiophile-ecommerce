@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { fetchProductItemStart } from '../../redux/productItem/productItem.actions'
 import { fetchShopDataStart } from '../../redux/shop/shopData.actions'
 import { selectShopData } from '../../redux/shop/shopData.selectors'
-import ProductDisplayCard from '../ProductDisplayCard/ProductDisplayCard.component'
+import { selectProductItem } from '../../redux/productItem/productItem.selectors'
 
-const ProductDisplay = ({ shopData, getShopData }) => {
+
+const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem }) => {
 
     useEffect(() => {
+        getProductItem()
         getShopData()
-    }, [getShopData])
+    }, [getShopData, getProductItem])
 
-    // shopData && console.log("ProductDisplay", shopData);
+    shopData && console.log("ProductDisplay", shopData, productItem);
 
     return (
         // shopData &&
@@ -25,10 +28,13 @@ const ProductDisplay = ({ shopData, getShopData }) => {
 }
 
 const mapStateToProps = state => ({
-    shopData: selectShopData(state)
+    shopData: selectShopData(state),
+    productItem: selectProductItem(state)
+
 })
 const mapDispatchToProps = dispatch => ({
-    getShopData: () => dispatch(fetchShopDataStart())
+    getProductItem: () => dispatch(fetchProductItemStart()),
+    getShopData: () => dispatch(fetchShopDataStart()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay)

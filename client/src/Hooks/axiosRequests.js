@@ -1,10 +1,19 @@
 import axios from "axios";
 
-export const getAllShopData = async () => {
-    const { data } = await axios.get("http://localhost:8000/v1/shopData");
-    // const { data } = await axios.get(
-    //     "https://the-dealer-portal.herokuapp.com/v1/shopData"
-    // );
-    console.log("axios", data);
+axios.defaults.baseURL = "http://localhost:8000/v1/";
+// axios.defaults.baseURL = "https://the-dealer-portal.herokuapp.com/v1/";
+
+export const getAllProductCategory = async () => {
+    const { data } = await axios.post("products", {
+        userId: "113577393364732277603",
+    });
+    console.log("axios-getAllShopCategory", data);
     return data;
+};
+
+export const getAllProductItems = async () => {
+    const { data } = await axios.post("productItem", {
+        userId: "113577393364732277603",
+    });
+    console.log("axios-getAllShopItems", data);
 };

@@ -6,7 +6,7 @@ const {
 
 const productItemRouter = express();
 
-productItemRouter.get("/", httpGetAllProductItems);
+productItemRouter.post("/", httpGetAllProductItems);
 productItemRouter.post("/createProductItem", httpCreateProductItems);
 
 module.exports = productItemRouter;

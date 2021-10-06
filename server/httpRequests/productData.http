@@ -3,6 +3,38 @@ GET http://localhost:8000/v1/products
 
 ###
 
+# get all product category for a user
+POST http://localhost:8000/v1/products
+content-type: application/json
+
+{
+    "userId": "113577393364732277603"
+}
+
+###
+
+# create new product category 
+POST http://localhost:8000/v1/products/createProduct
+content-type: application/json
+
+{
+    "userId":"113577393364732277603",
+    "product": "Headphones",
+    "routeName": "headphones"   
+}
+
+###
+
+# get all product items for a user
+POST  http://localhost:8000/v1/productItem/
+content-type: application/json
+
+{
+    "userId": "113577393364732277603"
+}
+
+###
+
 # create new productItem
 POST http://localhost:8000/v1/productItem/createProductItem
 content-type: application/json
@@ -17,35 +49,7 @@ content-type: application/json
 
 ###
 
-# get all product items for a user
-GET http://localhost:8000/v1/productItem/
-content-type: application/json
 
-{
-    "userId": "113577393364732277603"
-}
 
-###
 
-# create new product
-POST http://localhost:8000/v1/products/createProduct
-content-type: application/json
-
-{
-    "userId":"113577393364732277603",
-    "product": "Headphones",
-    "routeName": "headphones"   
-}
-
-###
-
-# get all products for a user
-GET http://localhost:8000/v1/productItem/
-content-type: application/json
-
-{
-    "userId": "113577393364732277603"
-}
-
-###
 
