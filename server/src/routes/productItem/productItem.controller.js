@@ -23,4 +23,4 @@ async function httpGetAllProductItems(req, res) {
     }
 }
 
-module.exports = { httpCreateProductItems, getAllProductItems };
+module.exports = { httpCreateProductItems, httpGetAllProductItems };
