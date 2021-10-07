@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8000/v1/";
+axios.defaults.baseURL = "http://localhost:3000/v1/";
 // axios.defaults.baseURL = "https://the-dealer-portal.herokuapp.com/v1/";
 
 export const getAllProductCategory = async () => {
@@ -32,7 +32,7 @@ export const getAllProductItems = async () => {
 export const getCurrentUser = async () => {
     // const data = await axios.post("currentUser");
     try {
-        const data = await axios.get("currentuser");
+        const data = await axios.get("currentUser", { withCredentials: true });
     } catch (error) {
         console.log(error);
     }
