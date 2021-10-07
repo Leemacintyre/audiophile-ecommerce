@@ -2,16 +2,18 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchProductItemStart } from '../../redux/productItem/productItem.actions'
 import { fetchShopDataStart } from '../../redux/shop/shopData.actions'
+import { fetchUserStart } from '../../redux/user/user.actions'
 import { selectShopData } from '../../redux/shop/shopData.selectors'
 import { selectProductItem } from '../../redux/productItem/productItem.selectors'
 
 
-const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem }) => {
+const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, currentUser, getCurrentUser }) => {
 
     useEffect(() => {
         getProductItem()
         getShopData()
-    }, [getShopData, getProductItem])
+        getCurrentUser()
+    }, [getShopData, getProductItem, getCurrentUser])
 
     shopData && console.log("ProductDisplay", shopData, productItem);
 
@@ -28,13 +30,15 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem }) 
 }
 
 const mapStateToProps = state => ({
+    productItem: selectProductItem(state),
     shopData: selectShopData(state),
-    productItem: selectProductItem(state)
+    currentUser: (state) => state
 
 })
 const mapDispatchToProps = dispatch => ({
     getProductItem: () => dispatch(fetchProductItemStart()),
     getShopData: () => dispatch(fetchShopDataStart()),
+    getCurrentUser: () => dispatch(fetchUserStart())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay)

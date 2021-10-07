@@ -16,4 +16,10 @@ export const getAllProductItems = async () => {
         userId: "113577393364732277603",
     });
     console.log("axios-getAllShopItems", data);
+    return data;
+};
+
+export const getCurrentUser = async () => {
+    const data = "user";
+    return data;
 };

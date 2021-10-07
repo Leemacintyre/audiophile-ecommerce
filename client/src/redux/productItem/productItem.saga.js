@@ -11,6 +11,7 @@ export function* fetchProductItemAsync() {
     yield console.log("fetchProductItemAsync");
     try {
         const data = yield call(getAllProductItems);
+        yield console.log("fetchProductItemAsync-data", data);
         yield put(fetchProductItemSuccess(data));
     } catch (error) {
         yield put(fetchProductItemFailure(error.message));

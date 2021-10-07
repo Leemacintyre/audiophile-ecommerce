@@ -2,6 +2,7 @@ import { shopDataActionTypes } from "./shopData.types";
 
 const INITIAL_STATE = {
     shopData: null,
+    error: null,
 };
 
 export const shopReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 shopData: action.payload,
+            };
+        case shopDataActionTypes.FETCH_SHOP_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
             };
         default:
             return state;
