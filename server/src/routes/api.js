@@ -6,6 +6,7 @@ const productItemRouter = require("./productItem/productItem.router");
 
 const api = express.Router();
 
+api.use("/currentuser");
 api.use("/google", googleAuthRouter);
 api.use("/products", productCategoryRouter);
 api.use("/productItem", productItemRouter);
