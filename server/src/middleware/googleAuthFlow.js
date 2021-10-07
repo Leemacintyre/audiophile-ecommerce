@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === "production") {
         return passport.authenticate("google", {
             failureRedirect: "/failure",
             successRedirect: "https://the-dealer-portal.herokuapp.com/",
-            session: true,
+            // session: false,
         });
     }
 } else {
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
         return passport.authenticate("google", {
             failureRedirect: "/failure",
             successRedirect: "http://localhost:3000/",
-            session: true,
+            // session: false,
         });
     }
 }

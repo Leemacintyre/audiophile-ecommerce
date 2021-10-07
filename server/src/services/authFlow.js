@@ -1,4 +1,5 @@
 const passport = require("passport");
+const User = require("../models/user/userData.mongo");
 const { Strategy } = require("passport-google-oauth20");
 const cookieSession = require("cookie-session");
 const {
@@ -7,6 +8,16 @@ const {
 } = require("../models/user/userData.model");
 
 function authFlow(app) {
+    passport.serializeUser((user, done) => {
+        console.log("serializeUser", user);
+        done(null, user._id);
+    });
+
+    passport.deserializeUser(async (userId, done) => {
+        const currentUser = await User.findById(userId);
+        done(null, currentUser);
+    });
+
     const config = {
         CLIENT_ID: process.env.CLIENT_ID,
         CLIENT_SECRET: process.env.CLIENT_SECRET,
@@ -23,27 +34,40 @@ function authFlow(app) {
         clientSecret: config.CLIENT_SECRET,
     };
 
-    function verifyCallback(accessToken, refreshToken, profile, done) {
-        // console.log("google profile", profile._json);
-        // const { sub } = profile;
-        // console.log(sub);
-        done(null, profile._json);
+    async function verifyCallback(accessToken, refreshToken, profile, done) {
+        const existingUser = await User.findOne({ _id: profile.id });
+        if (existingUser) {
+            done(null, existingUser);
+        } else {
+            const { sub, given_name, family_name, picture, email } =
+                profile._json;
+            try {
+                const newUser = new User({
+                    _id: sub,
+                    fName: given_name,
+                    lName: family_name,
+                    profilePicture: picture,
+                    email: email,
+                });
+                await newUser.save();
+            } catch (error) {
+                console.log("could not save user");
+            }
+        }
+        console.log(profile._json);
     }
-
     passport.use(new Strategy(AUTH_OPTIONS, verifyCallback));
-    serializeGoogleUser();
-    deserializeGoogleUser();
 
-    app.use(
-        cookieSession({
-            name: "session",
-            maxAge: 24 * 60 * 60 * 1000,
-            keys: [config.COOKIE_KEY_1, config.COOKIE_KEY_2],
-        })
-    );
+    // app.use(
+    //     cookieSession({
+    //         name: "session",
+    //         maxAge: 24 * 60 * 60 * 1000,
+    //         keys: [config.COOKIE_KEY_1, config.COOKIE_KEY_2],
+    //     })
+    // );
 
     app.use(passport.initialize());
-    app.use(passport.session());
+    // app.use(passport.session());
 }
 
 module.exports = { authFlow };

@@ -13,6 +13,11 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, cu
         getProductItem()
         getShopData()
         getCurrentUser()
+
+        // fetch('http://localhost:8000/v1/google/checklog')
+        //     .then(response => response.json())
+        //     .then(data => console.log(data));
+
     }, [getShopData, getProductItem, getCurrentUser])
 
     shopData && console.log("ProductDisplay", shopData, productItem);
@@ -24,6 +29,7 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, cu
             <a href="http://localhost:8000/v1/google/auth/google">login </a>
             <a href="http://localhost:8000/v1/google/checklog"> check log </a>
             <a href="http://localhost:8000/v1/google/logout"> logout</a>
+            <a href="http://localhost:8000/v1/currentuser"> currentuser</a>
             <div>test</div>
         </div>
     )

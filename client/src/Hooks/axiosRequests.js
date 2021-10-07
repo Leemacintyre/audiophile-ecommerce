@@ -19,7 +19,23 @@ export const getAllProductItems = async () => {
     return data;
 };
 
+// export const getCurrentUser = async () => {
+//     const { data } = await axios.post(
+//         "currentUser",
+
+//         { withCredentials: true, _id: "113577393364732277603" }
+//     );
+//     console.log("axios-getAllShopItems", data);
+//     return data;
+// };
+
 export const getCurrentUser = async () => {
-    const data = "user";
-    return data;
+    // const data = await axios.post("currentUser");
+    try {
+        const data = await axios.get("currentuser");
+    } catch (error) {
+        console.log(error);
+    }
+    // console.log("getCurrentUser", data);
+    // return data;
 };
