@@ -5,6 +5,7 @@ import { fetchShopDataStart } from '../../redux/shop/shopData.actions'
 import { fetchUserStart } from '../../redux/user/user.actions'
 import { selectShopData } from '../../redux/shop/shopData.selectors'
 import { selectProductItem } from '../../redux/productItem/productItem.selectors'
+import ProductDisplayCard from '../ProductDisplayCard/ProductDisplayCard.component'
 
 
 const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, currentUser, getCurrentUser }) => {
@@ -14,26 +15,23 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, cu
         getShopData()
         getCurrentUser()
 
-        // fetch('http://localhost:8000/v1/google/checklog')
-        //     .then(response => response.json())
-        //     .then(data => console.log(data));
-
     }, [getShopData, getProductItem, getCurrentUser])
 
-    shopData && console.log("ProductDisplay", shopData, productItem);
+    // shopData && console.log("ProductDisplay", shopData, productItem);
 
     return (
-        // shopData &&
+        shopData && productItem &&
         <div>
-            {/* <ProductDisplayCard shopData={shopData} /> */}
+            <ProductDisplayCard shopData={shopData} productItems={productItem} />
             <a href="http://localhost:8000/v1/google/auth/google">login </a>
             <a href="http://localhost:8000/v1/google/checklog"> check log </a>
             <a href="http://localhost:8000/v1/google/logout"> logout</a>
-            <a href="http://localhost:8000/v1/currentuser"> currentuser</a>
+            <a href="http://localhost:8000/v1/currentuser"> currentUser</a>
             <div>test</div>
         </div>
     )
 }
+
 
 const mapStateToProps = state => ({
     productItem: selectProductItem(state),
