@@ -1,18 +1,30 @@
 import React from 'react'
-
-
+import "./ProductDisplayCard.styles.scss"
+import { BiAddToQueue } from "react-icons/bi";
+import { RiEdit2Line } from "react-icons/ri";
 
 const ProductDisplayCard = ({ shopData, productItems }) => {
     return (
-        <div>
+        <div className="productDisplayCard-container">
+
             {
-                shopData.map(({ _id, product }) => (
-                    <div key={_id}><div>{product}</div>
-                        <div>
+                shopData.map((shopData) => (
+                    <div className="productDisplayCard-title" key={shopData._id}>
+                        <div>{shopData.product} <span className="productDisplayCard-addIcon"><BiAddToQueue /></span></div>
+                        <div className="productDisplayCard-item" key={shopData._id}>
                             {
-                                productItems.map(({ ProductCategoryId, itemName }) => {
-                                    if (_id === ProductCategoryId) {
-                                        return (<div>{itemName}</div>)
+                                productItems.map((item) => {
+                                    if (shopData._id === item.ProductCategoryId) {
+                                        return (
+                                            <div className="productDisplayCard-itemName">
+                                                <div ><RiEdit2Line /></div>
+                                                <div>{item.itemName}</div>
+                                                <div>{item.itemName}</div>
+                                                <div>{item.itemName}</div>
+                                                <div>{item.itemName}</div>
+
+                                            </div>
+                                        )
                                     }
                                     return null
                                 })

@@ -1,0 +1,22 @@
+.productDisplayCard-container {
+    .productDisplayCard-title {
+        padding: 20px;
+        border: 1px solid black;
+        .productDisplayCard-addIcon {
+            margin-left: 10px;
+            cursor: pointer;
+            svg {
+                font-size: 20px;
+            }
+        }
+    }
+    .productDisplayCard-item {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .productDisplayCard-itemName {
+        border: 1px solid green;
+        margin: 20px;
+        padding: 15px;
+    }
+}
