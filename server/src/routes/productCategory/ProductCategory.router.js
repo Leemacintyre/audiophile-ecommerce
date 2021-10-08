@@ -9,7 +9,7 @@ const {
 
 const shopDataRouter = express.Router();
 
-shopDataRouter.post("/", httpGetAllProducts);
+shopDataRouter.get("/", httpGetAllProducts);
 shopDataRouter.post("/createProduct", httpCreateProduct);
 shopDataRouter.post("/addProductItem", httpAddNewProductItem);
 

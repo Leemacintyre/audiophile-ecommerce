@@ -19,7 +19,7 @@ async function createNewItem(req, res) {
 
 async function getAllProductItems(req, res) {
     try {
-        const userId = req.body.userId;
+        const userId = req.user.id;
         return await ProductItem.find({ userId: userId });
     } catch (error) {
         console.log(`could not get shop data ${error}`);

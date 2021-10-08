@@ -1,13 +1,10 @@
 const passport = require("passport");
 const User = require("../models/user/userData.mongo");
 const { Strategy } = require("passport-google-oauth20");
-const cookieSession = require("cookie-session");
-const {
-    deserializeGoogleUser,
-    serializeGoogleUser,
-} = require("../models/user/userData.model");
 
 function authFlow(app) {
+    app.use(passport.initialize());
+
     passport.serializeUser((user, done) => {
         console.log("serializeUser", user);
         done(null, user._id);
@@ -50,6 +47,7 @@ function authFlow(app) {
                     email: email,
                 });
                 await newUser.save();
+                verifyCallback(accessToken, refreshToken, profile, done);
             } catch (error) {
                 console.log("could not save user");
             }
@@ -57,17 +55,6 @@ function authFlow(app) {
         console.log(profile._json);
     }
     passport.use(new Strategy(AUTH_OPTIONS, verifyCallback));
-
-    // app.use(
-    //     cookieSession({
-    //         name: "session",
-    //         maxAge: 24 * 60 * 60 * 1000,
-    //         keys: [config.COOKIE_KEY_1, config.COOKIE_KEY_2],
-    //     })
-    // );
-
-    app.use(passport.initialize());
-    // app.use(passport.session());
 }
 
 module.exports = { authFlow };
