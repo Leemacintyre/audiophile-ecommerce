@@ -18,8 +18,8 @@ POST http://localhost:8000/v1/products/createProduct
 content-type: application/json
 
 {
-    "userId":"118295492116101397634",
-    "product": "Goldfish",
+    "userId":"113577393364732277603",
+    "product": "category2",
     "routeName": "Goldfish"   
 }
 
@@ -40,10 +40,10 @@ POST http://localhost:8000/v1/productItem/createProductItem
 content-type: application/json
 
 {
-    "userId": "118295492116101397634",
-    "ProductCategoryId":"615daefb7b17d504c37ba091",
-    "itemName": "Mr Fish",
-    "imageUrl": "Mr Fish url",   
+    "userId": "113577393364732277603",
+    "ProductCategoryId":"61603f0ee3599f729fbef893",
+    "itemName": "item 2",
+    "imageUrl": "item 2",   
     "price": 123
 }
 
