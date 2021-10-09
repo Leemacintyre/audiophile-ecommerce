@@ -1,10 +1,15 @@
 import React from 'react'
 import ProductDisplay from '../../components/ProductDisplay/ProductDisplay.component'
 
-export const ProductPage = () => {
+const ProductPage = () => {
     return (
-        <div>
-            <ProductDisplay />
-        </div>
+        <>
+
+            <div>
+                <ProductDisplay />
+            </div>
+        </>
     )
 }
+
+export default ProductPage

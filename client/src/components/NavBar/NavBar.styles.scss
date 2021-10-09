@@ -11,7 +11,10 @@
     .NavBar-nav {
         display: flex;
         align-items: center;
-
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
         .NavBar-link {
             margin: 0 10px;
         }

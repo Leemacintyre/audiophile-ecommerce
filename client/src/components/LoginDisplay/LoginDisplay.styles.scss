@@ -1,0 +1,24 @@
+.loginDisplay-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: 1px solid green;
+
+    .loginDisplay-googleSignIn {
+        // border: 1px solid red;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            margin: 10px 0;
+            width: 100%;
+        }
+    }
+}

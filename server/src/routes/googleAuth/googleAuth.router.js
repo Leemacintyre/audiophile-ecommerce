@@ -4,7 +4,7 @@ const {
     signInWithGoogleStart,
     signInWithGoogleCallback,
 } = require("../../middleware/googleAuthFlow");
-const { redirectToHome } = require("./googleAuth.controller");
+const { redirectToLogin } = require("./googleAuth.controller");
 
 const googleAuthRouter = express.Router();
 
@@ -14,7 +14,8 @@ googleAuthRouter.get("/auth/google/callback", signInWithGoogleCallback());
 
 googleAuthRouter.get("/logout", (req, res) => {
     req.logOut();
-    redirectToHome(req, res);
+    redirectToLogin(req, res);
+    // res.json(undefined);
 });
 
 googleAuthRouter.get("/checklog", checkLoggedIn, (req, res) => {

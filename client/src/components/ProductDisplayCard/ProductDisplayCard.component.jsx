@@ -9,20 +9,21 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
 
             {
                 shopData.map((shopData) => (
-                    <div className="productDisplayCard-title" key={shopData._id}>
-                        <div>{shopData.product} <span className="productDisplayCard-addIcon"><BiAddToQueue /></span></div>
-                        <div className="productDisplayCard-item" key={shopData._id}>
+                    <div className="productDisplayCard-category-container" key={shopData._id}>
+                        <div className="productDisplayCard-title">
+                            {shopData.product} <span className="productDisplayCard-addIcon"><BiAddToQueue /></span>
+                        </div>
+                        <div className="productDisplayCard-item">
                             {
                                 productItems.map((item) => {
                                     if (shopData._id === item.ProductCategoryId) {
                                         return (
-                                            <div className="productDisplayCard-itemName">
+                                            <div className="productDisplayCard-itemName" key={item._id}>
                                                 <div ><RiEdit2Line /></div>
                                                 <div>{item.itemName}</div>
                                                 <div>{item.itemName}</div>
                                                 <div>{item.itemName}</div>
                                                 <div>{item.itemName}</div>
-
                                             </div>
                                         )
                                     }

@@ -30,3 +30,17 @@ export const getCurrentUser = async () => {
         console.log(error);
     }
 };
+
+// http://localhost:8000/v1/google/logout
+
+export const signOutGoogle = async () => {
+    try {
+        const data = await axios.get("google/logout", {
+            withCredentials: true,
+        });
+        console.log("getCurrentUser", data);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+};
