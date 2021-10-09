@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import './ProductDisplay.styles.scss'
 import { connect } from 'react-redux'
 import { fetchProductItemStart } from '../../redux/productItem/productItem.actions'
 import { fetchShopDataStart } from '../../redux/shop/shopData.actions'
@@ -6,6 +7,7 @@ import { fetchUserStart } from '../../redux/user/user.actions'
 import { selectShopData } from '../../redux/shop/shopData.selectors'
 import { selectProductItem } from '../../redux/productItem/productItem.selectors'
 import ProductDisplayCard from '../ProductDisplayCard/ProductDisplayCard.component'
+import AddStockTitle from '../AddStockTitle/AddStockTitle.component'
 
 
 const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, currentUser, getCurrentUser }) => {
@@ -22,6 +24,9 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, cu
     return (
         shopData && productItem &&
         <div>
+            <div className="productDisplay-addStock">
+                <AddStockTitle />
+            </div>
             <ProductDisplayCard shopData={shopData} productItems={productItem} />
             <a href="http://localhost:8000/v1/google/auth/google">login </a>
             <a href="http://localhost:8000/v1/google/checklog"> check log </a>

@@ -6,3 +6,8 @@ export const selectCurrentUser = createSelector(
     [currentUser],
     (state) => state.currentUser.currentUser
 );
+
+export const selectCurrentUserId = createSelector(
+    [currentUser],
+    (state) => state.currentUser.currentUser._id
+);

@@ -19,8 +19,7 @@ content-type: application/json
 
 {
     "userId":"113577393364732277603",
-    "product": "category2",
-    "routeName": "Goldfish"   
+    "product": "category2"
 }
 
 ###

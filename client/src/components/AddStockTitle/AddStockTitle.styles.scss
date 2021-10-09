@@ -1,0 +1,13 @@
+.addStockContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .addStock-input {
+        width: 60%;
+        input {
+            height: 44px;
+            width: 100%;
+            font-size: 18px;
+        }
+    }
+}

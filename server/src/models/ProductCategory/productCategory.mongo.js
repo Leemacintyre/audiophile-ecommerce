@@ -14,7 +14,7 @@ const productCategorySchema = new mongoose.Schema({
     },
     routeName: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
         // unique: true,
     },
