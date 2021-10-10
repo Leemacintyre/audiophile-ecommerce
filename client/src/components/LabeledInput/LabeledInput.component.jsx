@@ -1,15 +1,15 @@
 import React from 'react';
 import './LabeledInput.styles.scss'
 
-const LabeledInput = ({ handleChange, label, type, value }) => {
+const LabeledInput = ({ handleChange, label, type, ...otherProps }) => {
     return (
         <div>
             {label && <label htmlFor="">{label}</label>}
             {
                 type === 'textarea' ?
-                    <textarea cols="30" rows="10" onChange={handleChange} type={type} value={value}></textarea>
+                    <textarea cols="30" rows="10" onChange={handleChange} type={type} {...otherProps}></textarea>
                     :
-                    <input className="LabeledInput-input" onChange={handleChange} value={value} type={type} />
+                    <input className="LabeledInput-input" onChange={handleChange} type={type} {...otherProps} />
             }
         </div>
     );

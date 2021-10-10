@@ -14,6 +14,7 @@ const NavBar = ({ currentUser }) => {
             <div className="NavBar-container">
                 <Link to={'/'} className="NavBar-logo"><LogoIcon /></Link>
                 <div className="NavBar-nav">
+                    {currentUser ? <Link to={'/test'} className="NavBar-link">TEST</Link> : <Link to={'/login'} className="NavBar-link">TEST</Link>}
                     {currentUser ? <Link to={'/product'} className="NavBar-link">STOCK</Link> : <Link to={'/login'} className="NavBar-link">STOCK</Link>}
                     {currentUser ? <a href="http://localhost:8000/v1/google/logout" className="NavBar-link">LOGOUT</a> : null}
                 </div>

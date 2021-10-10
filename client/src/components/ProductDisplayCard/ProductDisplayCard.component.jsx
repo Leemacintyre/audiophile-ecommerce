@@ -2,8 +2,11 @@ import React from 'react'
 import "./ProductDisplayCard.styles.scss"
 import { BiAddToQueue } from "react-icons/bi";
 import { RiEdit2Line } from "react-icons/ri";
+import { useHistory } from "react-router-dom"
 
 const ProductDisplayCard = ({ shopData, productItems }) => {
+    const history = useHistory();
+    // TODO change route name from test
     return (
         <div className="productDisplayCard-container">
 
@@ -11,7 +14,7 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                 shopData.map((shopData) => (
                     <div className="productDisplayCard-category-container" key={shopData._id}>
                         <div className="productDisplayCard-title">
-                            {shopData.product} <span className="productDisplayCard-addIcon"><BiAddToQueue /></span>
+                            {shopData.product} <span className="productDisplayCard-addIcon"><BiAddToQueue onClick={() => history.push(`/product/${shopData._id}`)} /></span>
                         </div>
                         <div className="productDisplayCard-item">
                             {
