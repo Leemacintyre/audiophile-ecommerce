@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ProductDisplayCard.styles.scss"
 import { BiAddToQueue } from "react-icons/bi";
-import { RiEdit2Line } from "react-icons/ri";
+import { RiEdit2Line, RiDeleteBin5Line } from "react-icons/ri";
 import { useHistory } from "react-router-dom"
 
 const ProductDisplayCard = ({ shopData, productItems }) => {
@@ -22,7 +22,10 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                                     if (sData._id === item.ProductCategoryId) {
                                         return (
                                             <div className="productDisplayCard-itemName" key={item._id}>
-                                                <div> <span className="productDisplayCard-editIcon" onClick={() => history.push(`/product/update/${sData._id}/${item._id}`)}><RiEdit2Line /></span> </div>
+                                                <div className="productDisplayCard-iconContainer">
+                                                    <span className="productDisplayCard-icon" onClick={() => history.push(`/product/update/${sData._id}/${item._id}`)}><RiEdit2Line /></span>
+                                                    <span className="productDisplayCard-icon" onClick={() => history.push(`/product/delete/${sData._id}/${item._id}`)}><RiDeleteBin5Line /></span>
+                                                </div>
                                                 <div>{item.itemName}</div>
                                                 <div>{item.itemName}</div>
                                                 <div>{item.itemName}</div>

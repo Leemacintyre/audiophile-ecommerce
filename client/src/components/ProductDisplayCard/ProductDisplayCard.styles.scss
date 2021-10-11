@@ -22,7 +22,13 @@
             border: 1px solid green;
             margin: 20px;
             padding: 15px;
-            .productDisplayCard-editIcon {
+            min-width: 150px;
+            .productDisplayCard-iconContainer {
+                border: 1px solid pink;
+                display: flex;
+                justify-content: space-between;
+            }
+            .productDisplayCard-icon {
                 cursor: pointer;
             }
         }
