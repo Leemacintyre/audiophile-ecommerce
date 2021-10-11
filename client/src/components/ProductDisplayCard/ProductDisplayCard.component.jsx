@@ -1,12 +1,12 @@
 import React from 'react'
 import "./ProductDisplayCard.styles.scss"
 import { BiAddToQueue } from "react-icons/bi";
-import { RiEdit2Line, RiDeleteBin5Line } from "react-icons/ri";
+import { RiEdit2Line } from "react-icons/ri";
 import { useHistory } from "react-router-dom"
+import DeleteStockItem from '../DeleteStockItem/DeleteStockItem.component';
 
-const ProductDisplayCard = ({ shopData, productItems }) => {
+const ProductDisplayCard = ({ shopData, productItems, deleteItem }) => {
     const history = useHistory();
-    // TODO change route name from test
     return (
         <div className="productDisplayCard-container">
 
@@ -24,7 +24,7 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                                             <div className="productDisplayCard-itemName" key={item._id}>
                                                 <div className="productDisplayCard-iconContainer">
                                                     <span className="productDisplayCard-icon" onClick={() => history.push(`/product/update/${sData._id}/${item._id}`)}><RiEdit2Line /></span>
-                                                    <span className="productDisplayCard-icon" onClick={() => history.push(`/product/delete/${sData._id}/${item._id}`)}><RiDeleteBin5Line /></span>
+                                                    <DeleteStockItem deleteItem={deleteItem} shopId={sData._id} itemId={item._id} />
                                                 </div>
                                                 <div>{item.itemName}</div>
                                                 <div>{item.itemName}</div>

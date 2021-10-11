@@ -62,6 +62,15 @@ content-type: application/json
 
 ###
 
+DELETE  http://localhost:8000/v1/productItem/deleteProductItem
+content-type: application/json
+
+{
+    "itemToDelete": "6163cc8b85889b6f510ed09a"
+}
+
+###
+
 
 
 

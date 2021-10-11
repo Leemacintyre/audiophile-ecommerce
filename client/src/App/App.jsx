@@ -21,7 +21,7 @@ function App({ currentUser }) {
             <Route path="/product" exact component={ProductPage} />
             <Route path="/product/new/:currentProductId" exact component={AddStockItem} />
             <Route path="/product/update/:currentProductId/:currentItemId" exact component={EditStockItem} />
-            <Route path="/product/delete/:currentProductId/:currentItemId" exact component={DeleteStockItem} />
+            <Route path="/product/delete/:currentProductId/:currentItemId" exact component={ProductPage} />
         </Switch>
 
     </div>;

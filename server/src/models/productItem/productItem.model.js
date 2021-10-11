@@ -36,6 +36,16 @@ async function updateProductItem(req, res) {
     }
 }
 
+async function deleteProductItem(req, res) {
+    try {
+        return await ProductItem.findByIdAndDelete({
+            _id: req.body.itemToDelete,
+        });
+    } catch (error) {
+        console.log(`could not delete item ${error}`);
+    }
+}
+
 async function getAllProductItems(req, res) {
     try {
         const userId = req.user.id;
@@ -45,4 +55,9 @@ async function getAllProductItems(req, res) {
     }
 }
 
-module.exports = { createNewItem, getAllProductItems, updateProductItem };
+module.exports = {
+    createNewItem,
+    getAllProductItems,
+    updateProductItem,
+    deleteProductItem,
+};

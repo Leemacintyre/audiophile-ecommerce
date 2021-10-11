@@ -2,6 +2,7 @@ const {
     createNewItem,
     getAllProductItems,
     updateProductItem,
+    deleteProductItem,
 } = require("../../models/productItem/productItem.model");
 
 async function httpCreateProductItems(req, res) {
@@ -35,8 +36,19 @@ async function httpUpdateProductItem(req, res) {
     }
 }
 
+async function httpDeleteProductItem(req, res) {
+    try {
+        return res.status(204).json(await deleteProductItem(req, res));
+    } catch (error) {
+        return res
+            .status(400)
+            .json({ error: error, location: "httpDeleteProductItem" });
+    }
+}
+
 module.exports = {
     httpCreateProductItems,
     httpGetAllProductItems,
     httpUpdateProductItem,
+    httpDeleteProductItem,
 };
