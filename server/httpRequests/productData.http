@@ -48,6 +48,19 @@ content-type: application/json
 
 ###
 
+PUT http://localhost:8000/v1/productItem/updateProductItem
+content-type: application/json
+
+{
+    "itemToUpdate": "615daeb07b17d504c37ba082",
+    "userId": "113577393364732277603",
+    "ProductCategoryId":"615daef97b17d504c37ba08b",
+    "itemName": "update1",
+    "imageUrl": "update1",   
+    "price": 123
+}
+
+###
 
 
 

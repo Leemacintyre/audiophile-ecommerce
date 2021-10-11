@@ -22,6 +22,9 @@
             border: 1px solid green;
             margin: 20px;
             padding: 15px;
+            .productDisplayCard-editIcon {
+                cursor: pointer;
+            }
         }
     }
 }

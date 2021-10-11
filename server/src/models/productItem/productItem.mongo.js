@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
-    // items: {
     ProductCategoryId: {
         type: String,
         trim: true,
@@ -24,7 +23,10 @@ const itemSchema = new mongoose.Schema({
         type: Number,
         trim: true,
     },
-    // },
+    quantity: {
+        type: Number,
+        trim: true,
+    },
 });
 
 module.exports = mongoose.model("ProductItem", itemSchema);

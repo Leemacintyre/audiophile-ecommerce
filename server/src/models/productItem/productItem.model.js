@@ -17,6 +17,25 @@ async function createNewItem(req, res) {
     }
 }
 
+async function updateProductItem(req, res) {
+    try {
+        const updatedItem = {
+            ProductCategoryId: req.body.ProductCategoryId,
+            userId: req.body.userId,
+            itemName: req.body.itemName,
+            imageUrl: req.body.imageUrl,
+            price: req.body.price,
+        };
+        console.log(updatedItem);
+        return await ProductItem.findOneAndUpdate(
+            { _id: req.body.itemToUpdate },
+            updatedItem
+        );
+    } catch (error) {
+        console.log(`Could not update item ${error}`);
+    }
+}
+
 async function getAllProductItems(req, res) {
     try {
         const userId = req.user.id;
@@ -26,4 +45,4 @@ async function getAllProductItems(req, res) {
     }
 }
 
-module.exports = { createNewItem, getAllProductItems };
+module.exports = { createNewItem, getAllProductItems, updateProductItem };

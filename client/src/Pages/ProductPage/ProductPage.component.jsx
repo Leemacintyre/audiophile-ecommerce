@@ -3,12 +3,9 @@ import ProductDisplay from '../../components/ProductDisplay/ProductDisplay.compo
 
 const ProductPage = () => {
     return (
-        <>
-
-            <div>
-                <ProductDisplay />
-            </div>
-        </>
+        <div>
+            <ProductDisplay />
+        </div>
     )
 }
 
