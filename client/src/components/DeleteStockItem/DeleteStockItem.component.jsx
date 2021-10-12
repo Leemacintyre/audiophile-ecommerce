@@ -1,32 +1,26 @@
 import React from 'react';
-import { useHistory, useLocation, useParams } from 'react-router-dom'
-
 
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { connect } from 'react-redux';
-import { fetchCurrentItemId, fetchCurrentTitleId } from '../../redux/shop/shopData.actions';
-
-const DeleteStockItem = ({ deleteItem, shopId, itemId, currentItemId, currentTitleId }) => {
-
-    const history = useHistory();
+import { fetchCurrentItemIdStart } from '../../redux/productItem/productItem.actions';
 
 
-    const doAll = () => {
-        currentItemId(itemId);
-        currentTitleId(shopId);
-        deleteItem();
+const DeleteStockItem = ({ idToDelete, currentItemId }) => {
+
+    const deleteId = async () => {
+        console.log(idToDelete);
+        await currentItemId(idToDelete);
     }
+
     return (
-        <span className="productDisplayCard-icon" onClick={doAll} ><RiDeleteBin5Line /></span>
+        <span className="productDisplayCard-icon" onClick={deleteId} ><RiDeleteBin5Line /></span>
     );
 };
 
 const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
-    currentItemId: (currentItemId) => dispatch(fetchCurrentItemId(currentItemId)),
-    currentTitleId: (currentTitleId) => dispatch(fetchCurrentTitleId(currentTitleId))
-
+    currentItemId: (currentItemId) => dispatch(fetchCurrentItemIdStart(currentItemId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeleteStockItem);

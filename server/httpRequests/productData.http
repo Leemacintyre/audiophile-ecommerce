@@ -40,7 +40,7 @@ content-type: application/json
 
 {
     "userId": "113577393364732277603",
-    "ProductCategoryId":"61603f0ee3599f729fbef893",
+    "ProductCategoryId":"615daecd7b17d504c37ba085",
     "itemName": "item 2",
     "imageUrl": "item 2",   
     "price": 123

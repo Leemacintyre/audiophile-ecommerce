@@ -3,8 +3,6 @@ import { shopDataActionTypes } from "./shopData.types";
 const INITIAL_STATE = {
     shopData: null,
     error: null,
-    currentItemId: undefined,
-    currentTitleId: undefined,
 };
 
 export const shopReducer = (state = INITIAL_STATE, action) => {
@@ -18,16 +16,6 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 error: action.payload,
-            };
-        case shopDataActionTypes.FETCH_CURRENT_ITEM_ID:
-            return {
-                ...state,
-                currentItemId: action.payload,
-            };
-        case shopDataActionTypes.FETCH_CURRENT_ITEM_TITLE:
-            return {
-                ...state,
-                currentTitleId: action.payload,
             };
         default:
             return state;

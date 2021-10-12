@@ -5,7 +5,7 @@ import { RiEdit2Line } from "react-icons/ri";
 import { useHistory } from "react-router-dom"
 import DeleteStockItem from '../DeleteStockItem/DeleteStockItem.component';
 
-const ProductDisplayCard = ({ shopData, productItems, deleteItem }) => {
+const ProductDisplayCard = ({ shopData, productItems }) => {
     const history = useHistory();
     return (
         <div className="productDisplayCard-container">
@@ -24,7 +24,7 @@ const ProductDisplayCard = ({ shopData, productItems, deleteItem }) => {
                                             <div className="productDisplayCard-itemName" key={item._id}>
                                                 <div className="productDisplayCard-iconContainer">
                                                     <span className="productDisplayCard-icon" onClick={() => history.push(`/product/update/${sData._id}/${item._id}`)}><RiEdit2Line /></span>
-                                                    <DeleteStockItem deleteItem={deleteItem} shopId={sData._id} itemId={item._id} />
+                                                    <DeleteStockItem idToDelete={item._id} />
                                                 </div>
                                                 <div>{item.itemName}</div>
                                                 <div>{item.itemName}</div>

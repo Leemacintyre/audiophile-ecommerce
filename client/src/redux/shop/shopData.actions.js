@@ -19,13 +19,3 @@ export const fetchShopDataFailure = (errorMessage) => ({
     type: shopDataActionTypes.FETCH_SHOP_DATA_FAILURE,
     payload: errorMessage,
 });
-
-export const fetchCurrentItemId = (currentItemId) => ({
-    type: shopDataActionTypes.FETCH_CURRENT_ITEM_ID,
-    payload: currentItemId,
-});
-
-export const fetchCurrentTitleId = (currentTitleId) => ({
-    type: shopDataActionTypes.FETCH_CURRENT_ITEM_TITLE,
-    payload: currentTitleId,
-});
