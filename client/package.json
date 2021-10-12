@@ -31,9 +31,9 @@
         "web-vitals": "^1.0.1"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "set BUILD_PATH=../server/public&& react-scripts build",
-        "test": "react-scripts test",
+        "start": "craco start",
+        "build": "set BUILD_PATH=../server/public&& craco build",
+        "test": "craco test",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
