@@ -1,0 +1,18 @@
+.labeledInput-input {
+    @apply appearance-none 
+        bg-transparent
+        border-b-2  
+        border-purple-300
+        rounded
+        w-full
+        h-full
+        text-gray-700 
+        mx-3
+        py-1
+        px-2 
+        leading-tight
+        focus:outline-none
+        focus:border-purple-500
+        transition
+        duration-500;
+}

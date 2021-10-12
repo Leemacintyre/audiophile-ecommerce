@@ -1,4 +1,25 @@
 .custom-button {
+    @apply bg-transparent
+    hover:bg-purple-700
+    hover:text-white
+    hover:border-transparent
+    transition
+    duration-500
+    text-purple-900
+    font-semibold
+    py-2
+    px-4
+    border
+    border-purple-900 
+    rounded;
+
+    &.google-sign-in {
+        @apply bg-google-blue border-google-blue hover:bg-google-blue-light text-white  hover:border-transparent;
+    }
+}
+/* bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded */
+
+/* .custom-button {
     min-width: 165px;
     width: auto;
     height: 50px;
@@ -44,4 +65,4 @@
             border: none;
         }
     }
-}
+} */

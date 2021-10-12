@@ -30,7 +30,7 @@ const AddStockTitle = ({ currentUserId, getShopData }) => {
 
     return (
         <div className="addStockContainer" >
-            <CustomButton onClick={(e) => handleSubmit(e)} type="submit" >ADD NEW CATEGORY</CustomButton>
+            <CustomButton onClick={(e) => handleSubmit(e)} type="submit" >NEW CATEGORY</CustomButton>
             <div className="addStock-input">
                 <LabeledInput handleChange={e => handleChange(e)} value={categoryTitle} />
             </div>

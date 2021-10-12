@@ -9,7 +9,7 @@ const LabeledInput = ({ handleChange, label, type, ...otherProps }) => {
                 type === 'textarea' ?
                     <textarea cols="30" rows="10" onChange={handleChange} type={type} {...otherProps}></textarea>
                     :
-                    <input className="LabeledInput-input" onChange={handleChange} type={type} {...otherProps} />
+                    <input className="labeledInput-input" onChange={handleChange} type={type} {...otherProps} />
             }
         </div>
     );

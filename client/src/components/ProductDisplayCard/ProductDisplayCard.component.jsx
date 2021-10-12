@@ -26,10 +26,10 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                                                     <span className="productDisplayCard-icon" onClick={() => history.push(`/product/update/${sData._id}/${item._id}`)}><RiEdit2Line /></span>
                                                     <DeleteStockItem idToDelete={item._id} />
                                                 </div>
+                                                <img src={item.imageUrl} alt="" />
                                                 <div>{item.itemName}</div>
-                                                <div>{item.itemName}</div>
-                                                <div>{item.itemName}</div>
-                                                <div>{item.itemName}</div>
+                                                <div>{item.price}</div>
+                                                <div>Quantity</div>
                                             </div>
                                         )
                                     }
