@@ -32,8 +32,8 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                                                 </div>
                                                 <img className="productDisplayCard-image" src={item.imageUrl} alt="" />
                                                 <div className="productDisplayCard-itemName">{item.itemName}</div>
-                                                <div className="productDisplayCard-price">{item.price}</div>
-                                                <div className="productDisplayCard-quantity">Quantity</div>
+                                                <div className="productDisplayCard-price">Cost per unit:<strong> £{item.price}</strong></div>
+                                                <div className="productDisplayCard-quantity">Stock level:<strong> 14</strong> </div>
                                             </div>
                                         )
                                     }

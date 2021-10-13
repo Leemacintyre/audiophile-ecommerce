@@ -11,9 +11,15 @@
                     p-5
                     font-semibold
                     text-xl
-                   bg-green-900
+                   /* bg-green-900 */
+                   bg-gray-300
+                   underline
                    rounded
-                   text-purple-50;
+                   /* text-purple-50 */
+                   border-b-2
+                   border-gray-900
+                   
+                   text-black;
 
             .productDisplayCard-titleItemContainer {
                 @apply flex;
@@ -33,10 +39,11 @@
             flex-wrap;
 
             .productDisplayCard-card-container {
-                border: 1px solid green;
+                /* border: 1px solid green; */
                 @apply rounded
                 border-2
-                border-green-900
+                /* border-green-900 */
+                border-gray-500
                 m-5
                 p-4
                 min-w-min
@@ -60,6 +67,30 @@
                 }
                 .productDisplayCard-image {
                     @apply rounded;
+                }
+                .productDisplayCard-itemName {
+                    @apply text-xl
+                    flex
+                    flex-wrap
+                    font-semibold
+                    my-3
+                 
+                    capitalize
+                    max-w-xs;
+                }
+                .productDisplayCard-price {
+                    @apply text-base
+                    font-normal
+                    my-3
+                    /* px-4 */
+                    capitalize;
+                }
+                .productDisplayCard-quantity {
+                    @apply text-base
+                    font-normal
+                    my-3
+                    /* px-4 */
+                    capitalize;
                 }
             }
         }
