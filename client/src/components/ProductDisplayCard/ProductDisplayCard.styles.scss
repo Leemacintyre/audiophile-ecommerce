@@ -1,5 +1,73 @@
 .productDisplayCard-container {
     border: 1px solid red;
+    @apply rounded;
+    .productDisplayCard-category-container {
+        border: 1px solid black;
+        @apply my-1;
+
+        .productDisplayCard-title {
+            @apply flex
+                    justify-between
+                    p-5
+                    font-semibold
+                    text-xl
+                   bg-green-900
+                   rounded
+                   text-purple-50;
+
+            .productDisplayCard-titleItemContainer {
+                @apply flex;
+            }
+            .productDisplayCard-icon {
+                @apply ml-2
+                        cursor-pointer;
+
+                svg {
+                    @apply text-2xl;
+                }
+            }
+        }
+        .productDisplayCard-item {
+            border: 1px solid orange;
+            @apply flex 
+            flex-wrap;
+
+            .productDisplayCard-card-container {
+                border: 1px solid green;
+                @apply rounded
+                border-2
+                border-green-900
+                m-5
+                p-4
+                min-w-min
+                max-w-xs;
+
+                .productDisplayCard-iconContainer {
+                    /* border: 1px solid pink; */
+                    @apply flex
+                     justify-between;
+                }
+                .productDisplayCard-icon {
+                    @apply cursor-pointer
+                    hover:bg-green-200
+                    rounded
+                    mb-2
+                    p-5;
+
+                    svg {
+                        @apply text-2xl;
+                    }
+                }
+                .productDisplayCard-image {
+                    @apply rounded;
+                }
+            }
+        }
+    }
+}
+
+/* .productDisplayCard-container {
+    border: 1px solid red;
     .productDisplayCard-category-container {
         border: 1px solid black;
         margin: 5px 0;
@@ -33,4 +101,4 @@
             }
         }
     }
-}
+} */
