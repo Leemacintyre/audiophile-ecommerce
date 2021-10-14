@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductDisplay.styles.scss'
 import { connect } from 'react-redux'
 import { fetchProductItemStart } from '../../redux/productItem/productItem.actions'
@@ -17,6 +17,7 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, ge
         getShopData()
 
     }, [getShopData, getProductItem, getCurrentUser])
+
 
 
 

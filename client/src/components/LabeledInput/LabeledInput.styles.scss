@@ -1,19 +1,24 @@
-.labeledInput-input {
-    @apply appearance-none 
-        bg-transparent
-        border-b-2  
-        border-purple-300
-        rounded
-        /* w-full */
-        /* h-full */
-        text-gray-700 
-        font-semibold
-        /* mx-3 */
-        py-1
-        px-5 
-        leading-tight
-        focus:outline-none
-        focus:border-purple-500
-        transition
-        duration-500;
+.labeledInput-container {
+    @apply mb-10;
+    .labeledInput-input {
+        @apply appearance-none 
+            bg-transparent
+            border-b-2  
+            border-purple-300
+            rounded
+            text-gray-700 
+            font-semibold
+            /* mx-3 */
+            px-5 
+            h-10
+            leading-tight
+            focus:outline-none
+            focus:border-purple-500
+            focus:bg-purple-200
+            transition
+            duration-500;
+    }
+    label {
+        @apply pr-10 font-semibold;
+    }
 }

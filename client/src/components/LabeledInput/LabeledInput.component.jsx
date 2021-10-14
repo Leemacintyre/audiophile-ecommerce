@@ -3,7 +3,7 @@ import './LabeledInput.styles.scss'
 
 const LabeledInput = ({ handleChange, label, type, ...otherProps }) => {
     return (
-        <div>
+        <div className="labeledInput-container" >
             {label && <label htmlFor="">{label}</label>}
             {
                 type === 'textarea' ?

@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./ProductDisplayCard.styles.scss"
 import { BiAddToQueue } from "react-icons/bi";
 import { RiEdit2Line, RiDeleteBin5Line } from "react-icons/ri";
 import { useHistory } from "react-router-dom"
 import DeleteStockItem from '../DeleteStockItem/DeleteStockItem.component';
+import AddStockItem from "../AddStockItem/AddStockItem.component"
 
 const ProductDisplayCard = ({ shopData, productItems }) => {
     const history = useHistory();
+
+    const [showModal, setShowModal] = useState(false)
+
+    const toggleModal = () => {
+        showModal(!showModal)
+    }
+
     return (
         <div className="productDisplayCard-container">
 
@@ -16,7 +24,9 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                         <div className="productDisplayCard-title">
                             <div className="productDisplayCard-titleItemContainer">
                                 <div>{sData.product}</div>
-                                <div className="productDisplayCard-icon"><BiAddToQueue onClick={() => history.push(`/product/new/${sData._id}`)} /></div>
+                                <div className="productDisplayCard-icon"><AddStockItem />
+                                    {/* <BiAddToQueue onClick={() => history.push(`/product/new/${sData._id}`)} /> */}
+                                </div>
                             </div>
                             <div className="productDisplayCard-icon"><RiDeleteBin5Line onClick={""} /></div>
                         </div>

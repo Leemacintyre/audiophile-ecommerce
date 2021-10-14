@@ -1,0 +1,27 @@
+.addStockItem-wrapper {
+    @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+    .addStockItem-container {
+        @apply relative w-auto mx-auto max-w-sm;
+        .addStockItem-modalBg {
+            @apply border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none;
+            .addStockItem-titleContainer {
+                @apply flex items-start justify-between p-5 border-b border-solid border-purple-200;
+                .addStockItem-title {
+                    @apply text-3xl font-semibold;
+                }
+            }
+            .addStockItem-modalBody {
+                @apply relative p-6 flex-auto;
+                .addStockItem-modalContent {
+                    @apply my-4 text-gray-900 text-lg leading-relaxed;
+                }
+            }
+            .addStockItem-modalFooter {
+                @apply flex items-center justify-between p-6 border-t border-solid border-purple-200 rounded-b;
+            }
+        }
+    }
+}
+.addStockItem-bgGradient {
+    @apply fixed inset-0 z-40 bg-gray-900 opacity-100;
+}
