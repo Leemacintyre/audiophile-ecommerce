@@ -11,70 +11,65 @@ import ModelSm from '../ModalSm/ModelSm.component';
 import { BiAddToQueue } from "react-icons/bi";
 
 
-const AddStockItem = ({ currentUserId, ...props }) => {
-    // const { match: { params: { currentProductId } } } = props
-    // const history = useHistory();
+const AddStockItem = ({ currentUserId, ProductCategoryId, showModal, toggleModal, currentProductCategoryId, ...props }) => {
 
     const initialState = { itemName: '', imageUrl: '', price: '' }
     const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '' })
     const { imageUrl, itemName, price } = stockItem
-    const [showModal, setShowModal] = useState(true)
-
-    const toggleModal = () => {
-        setShowModal(!showModal)
-    }
 
     const handleChange = event => {
         const { value, name } = event.target;
         setStockItem({ ...stockItem, [name]: value });
     }
-
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        axios.post("productItem/createProductItem", {
-            "userId": currentUserId,
-            // "ProductCategoryId": currentProductId,
-            "itemName": itemName,
-            "imageUrl": imageUrl,
-            "price": parseFloat(price)
-        })
-
+        // axios.post("productItem/createProductItem", {
+        //     "userId": currentUserId,
+        //     "ProductCategoryId": currentProductCategoryId,
+        //     "itemName": itemName,
+        //     "imageUrl": imageUrl,
+        //     "price": parseFloat(price)
+        // })
+        console.log(currentProductCategoryId);
+        console.log('i am fired');
         setStockItem(initialState)
-        // history.push('/product')
     }
 
     return (
-        !showModal ?
-            <>
-                <ModelSm
-                    title={'test'}
-                    handleSubmit={handleSubmit}
-                >
-                    <LabeledInput
-                        name="itemName"
-                        type="text"
-                        value={itemName}
-                        handleChange={handleChange}
-                        label='ITEM NAME'
-                        required />
-                    <LabeledInput
-                        name="imageUrl"
-                        type="text"
-                        value={imageUrl}
-                        handleChange={handleChange}
-                        label='IMAGE URL'
-                        required />
-                    <LabeledInput
-                        name="price"
-                        type="number"
-                        value={price}
-                        handleChange={handleChange}
-                        label='PRICE (£)'
-                        required />
-                </ModelSm>
-            </>
-            : <BiAddToQueue />
+        <>
+            {showModal ? <ModelSm
+                title={'test'}
+                handleSubmit={handleSubmit}
+                toggleModal={toggleModal}
+                currentProductCategoryId={currentProductCategoryId}
+            >
+                <LabeledInput
+                    name="itemName"
+                    type="text"
+                    value={itemName}
+                    handleChange={handleChange}
+                    label='ITEM NAME'
+                    required />
+                <LabeledInput
+                    name="imageUrl"
+                    type="text"
+                    value={imageUrl}
+                    handleChange={handleChange}
+                    label='IMAGE URL'
+                    required />
+                <LabeledInput
+                    name="price"
+                    type="number"
+                    value={price}
+                    handleChange={handleChange}
+                    label='PRICE (£)'
+                    required />
+            </ModelSm>
+                :
+                <BiAddToQueue onClick={toggleModal} />}
+        </>
+
     )
 }
 
@@ -114,7 +109,7 @@ const AddStockItem = ({ currentUserId, ...props }) => {
 // };
 
 const mapStateToProps = (state) => ({
-    currentUserId: selectCurrentUserId(state)
+    currentUserId: selectCurrentUserId(state),
 
 })
 

@@ -4,11 +4,14 @@
     .productDisplayCard-category-container {
         border: 1px solid black;
         @apply my-1;
-
+        .productDisplayCard-titleText {
+            @apply py-2;
+        }
         .productDisplayCard-title {
             @apply flex
                     justify-between
-                    p-5
+                    px-5
+                    py-3
                     font-semibold
                     text-xl
                    bg-green-900
@@ -21,7 +24,10 @@
             }
             .productDisplayCard-icon {
                 @apply ml-2
-                        cursor-pointer;
+                        cursor-pointer
+                        p-3
+                        rounded
+                        hover:bg-green-200;
 
                 svg {
                     @apply text-2xl;

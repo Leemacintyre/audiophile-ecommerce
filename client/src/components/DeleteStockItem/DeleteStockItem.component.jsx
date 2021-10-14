@@ -6,7 +6,7 @@ import { fetchCurrentItemIdStart } from '../../redux/productItem/productItem.act
 
 
 const DeleteStockItem = ({ idToDelete, currentItemId }) => {
-
+    console.log(idToDelete);
     const deleteId = async () => {
         console.log(idToDelete);
         await currentItemId(idToDelete);

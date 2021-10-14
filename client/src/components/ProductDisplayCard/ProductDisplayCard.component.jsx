@@ -12,7 +12,8 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
     const [showModal, setShowModal] = useState(false)
 
     const toggleModal = () => {
-        showModal(!showModal)
+        setShowModal(!showModal)
+        console.log(showModal)
     }
 
     return (
@@ -23,12 +24,13 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                     <div className="productDisplayCard-category-container" key={sData._id}>
                         <div className="productDisplayCard-title">
                             <div className="productDisplayCard-titleItemContainer">
-                                <div>{sData.product}</div>
-                                <div className="productDisplayCard-icon"><AddStockItem />
+                                <div className="productDisplayCard-titleText">{sData.product}</div>
+                                <div className="productDisplayCard-icon">
+                                    <AddStockItem toggleModal={toggleModal} currentProductCategoryId={sData.product} showModal={showModal} />
                                     {/* <BiAddToQueue onClick={() => history.push(`/product/new/${sData._id}`)} /> */}
                                 </div>
                             </div>
-                            <div className="productDisplayCard-icon"><RiDeleteBin5Line onClick={""} /></div>
+                            <div className="productDisplayCard-icon"><RiDeleteBin5Line /></div>
                         </div>
                         <div className="productDisplayCard-item">
                             {
