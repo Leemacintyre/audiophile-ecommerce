@@ -1,14 +1,14 @@
 import React from 'react'
 import CustomButton from '../CustomButton/CustomButton.component'
 import './ModelSm.styles.scss'
-const ModelSm = ({ children, title, handleSubmit, toggleModal }) => {
+const ModelSm = ({ children, title, handleSubmit, toggleModal, currentProductCategoryId }) => {
 
 
 
     return (
         <>
             <div className="addStockItem-wrapper">
-                <div className="addStockItem-bgGradient" onClick={toggleModal}></div>
+                <div className="addStockItem-bgGradient" onClick={() => toggleModal()}></div>
                 <div className="addStockItem-container">
                     {/*content*/}
                     <div className="addStockItem-modalBg">
@@ -27,8 +27,8 @@ const ModelSm = ({ children, title, handleSubmit, toggleModal }) => {
                         </div>
                         {/*footer*/}
                         <div className="addStockItem-modalFooter">
-                            <CustomButton type="submit" close onClick={toggleModal}>CLOSE</CustomButton>
-                            <CustomButton type="submit" onClick={e => handleSubmit(e)}>UPDATE</CustomButton>
+                            <CustomButton type="submit" close onClick={() => toggleModal()}>CLOSE</CustomButton>
+                            <CustomButton type="submit" onClick={(e) => handleSubmit(e)}>UPDATE</CustomButton>
                         </div>
                     </div>
                 </div>

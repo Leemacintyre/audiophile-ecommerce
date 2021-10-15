@@ -11,7 +11,7 @@ import ModelSm from '../ModalSm/ModelSm.component';
 import { BiAddToQueue } from "react-icons/bi";
 
 
-const AddStockItem = ({ currentUserId, ProductCategoryId, showModal, toggleModal, currentProductCategoryId, ...props }) => {
+const AddStockItem = ({ currentUserId, ProductCategoryId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, ...props }) => {
 
     const initialState = { itemName: '', imageUrl: '', price: '' }
     const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '' })
@@ -21,24 +21,31 @@ const AddStockItem = ({ currentUserId, ProductCategoryId, showModal, toggleModal
         const { value, name } = event.target;
         setStockItem({ ...stockItem, [name]: value });
     }
+
     const handleSubmit = (event) => {
         event.preventDefault()
-
-        // axios.post("productItem/createProductItem", {
-        //     "userId": currentUserId,
-        //     "ProductCategoryId": currentProductCategoryId,
-        //     "itemName": itemName,
-        //     "imageUrl": imageUrl,
-        //     "price": parseFloat(price)
-        // })
+        console.log({
+            "userId": currentUserId,
+            "ProductCategoryId": currentProductCategoryId,
+            "itemName": itemName,
+            "imageUrl": imageUrl,
+            "price": parseFloat(price)
+        });
+        axios.post("productItem/createProductItem", {
+            "userId": currentUserId,
+            "ProductCategoryId": currentProductCategoryId,
+            "itemName": itemName,
+            "imageUrl": imageUrl,
+            "price": parseFloat(price)
+        })
         console.log(currentProductCategoryId);
         console.log('i am fired');
         setStockItem(initialState)
     }
-
+    console.log();
     return (
         <>
-            {showModal ? <ModelSm
+            {openModal && modalId === currentProductCategoryId ? <ModelSm
                 title={'test'}
                 handleSubmit={handleSubmit}
                 toggleModal={toggleModal}
@@ -66,13 +73,13 @@ const AddStockItem = ({ currentUserId, ProductCategoryId, showModal, toggleModal
                     label='PRICE (£)'
                     required />
             </ModelSm>
-                :
-                <BiAddToQueue onClick={toggleModal} />}
+                : <><BiAddToQueue onClick={() => toggleModal(currentProductCategoryId)} /></>
+            }
+
         </>
 
     )
 }
-
 
 
 // <div className="addStockItem-bg" >

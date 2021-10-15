@@ -42,7 +42,7 @@ content-type: application/json
     "userId": "113577393364732277603",
     "ProductCategoryId":"615daecd7b17d504c37ba085",
     "itemName": "item 2",
-    "imageUrl": "item 2",   
+    "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",   
     "price": 123
 }
 

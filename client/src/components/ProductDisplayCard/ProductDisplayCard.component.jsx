@@ -9,10 +9,12 @@ import AddStockItem from "../AddStockItem/AddStockItem.component"
 const ProductDisplayCard = ({ shopData, productItems }) => {
     const history = useHistory();
 
-    const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState({ openModal: false, modalId: null })
 
-    const toggleModal = () => {
-        setShowModal(!showModal)
+    const toggleModal = (Id = null) => {
+        console.log(showModal, Id)
+        const { openModal } = showModal
+        setShowModal({ openModal: !openModal, modalId: Id })
         console.log(showModal)
     }
 
@@ -26,7 +28,7 @@ const ProductDisplayCard = ({ shopData, productItems }) => {
                             <div className="productDisplayCard-titleItemContainer">
                                 <div className="productDisplayCard-titleText">{sData.product}</div>
                                 <div className="productDisplayCard-icon">
-                                    <AddStockItem toggleModal={toggleModal} currentProductCategoryId={sData.product} showModal={showModal} />
+                                    <AddStockItem toggleModal={toggleModal} currentProductCategoryId={sData._id} showModal={showModal} />
                                     {/* <BiAddToQueue onClick={() => history.push(`/product/new/${sData._id}`)} /> */}
                                 </div>
                             </div>
