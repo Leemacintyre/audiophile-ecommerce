@@ -11,7 +11,7 @@ import ModelSm from '../ModalSm/ModelSm.component';
 import { BiAddToQueue } from "react-icons/bi";
 
 
-const AddStockItem = ({ currentUserId, ProductCategoryId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, ...props }) => {
+const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, ...props }) => {
 
     const initialState = { itemName: '', imageUrl: '', price: '' }
     const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '' })
@@ -24,13 +24,6 @@ const AddStockItem = ({ currentUserId, ProductCategoryId, showModal: { openModal
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log({
-            "userId": currentUserId,
-            "ProductCategoryId": currentProductCategoryId,
-            "itemName": itemName,
-            "imageUrl": imageUrl,
-            "price": parseFloat(price)
-        });
         axios.post("productItem/createProductItem", {
             "userId": currentUserId,
             "ProductCategoryId": currentProductCategoryId,
@@ -38,15 +31,15 @@ const AddStockItem = ({ currentUserId, ProductCategoryId, showModal: { openModal
             "imageUrl": imageUrl,
             "price": parseFloat(price)
         })
-        console.log(currentProductCategoryId);
-        console.log('i am fired');
         setStockItem(initialState)
     }
     console.log();
     return (
         <>
-            {openModal && modalId === currentProductCategoryId ? <ModelSm
-                title={'test'}
+            <BiAddToQueue onClick={() => toggleModal(currentProductCategoryId)} />
+
+            {openModal && modalId === currentProductCategoryId && <ModelSm
+                title={categoryTitle}
                 handleSubmit={handleSubmit}
                 toggleModal={toggleModal}
                 currentProductCategoryId={currentProductCategoryId}
@@ -73,47 +66,11 @@ const AddStockItem = ({ currentUserId, ProductCategoryId, showModal: { openModal
                     label='PRICE (£)'
                     required />
             </ModelSm>
-                : <><BiAddToQueue onClick={() => toggleModal(currentProductCategoryId)} /></>
             }
-
         </>
 
     )
 }
-
-
-// <div className="addStockItem-bg" >
-//     <div className="addStockItem-container">
-//         <div onClick={() => history.push("/product")} className="addStockItem-close">
-//             x</div>
-//         <div className="addStockItem-form">
-//             <LabeledInput
-//                 name="itemName"
-//                 type="text"
-//                 value={itemName}
-//                 handleChange={handleChange}
-//                 label='ITEM NAME'
-//                 required />
-//             <LabeledInput
-//                 name="imageUrl"
-//                 type="text"
-//                 value={imageUrl}
-//                 handleChange={handleChange}
-//                 label='IMAGE URL'
-//                 required />
-//             <LabeledInput
-//                 name="price"
-//                 type="number"
-//                 value={price}
-//                 handleChange={handleChange}
-//                 label='PRICE (£)'
-//                 required />
-//             <CustomButton type="submit" onClick={e => handleSubmit(e)}>UPDATE</CustomButton>
-//         </div>
-//     </div>
-// </div>
-//     );
-// };
 
 const mapStateToProps = (state) => ({
     currentUserId: selectCurrentUserId(state),
