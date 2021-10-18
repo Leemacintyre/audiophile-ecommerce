@@ -25,26 +25,14 @@ async function getAllProducts(req, res) {
     }
 }
 
-async function addNewProductItem(req, res) {
-    //     //  name: req.body.name,
-    //     //                     imageUrl: req.body.imageUrl,
-    //     //                     price: req.body.price,
+async function deleteProductCategory(req, res) {
     try {
-        //         return ProductCategory.findByIdAndUpdate(
-        //             { _id: "6153efbb03c8b54f4e7216de" },
-        //             {
-        //                 $addToSet: {
-        //                     items: {
-        //                         name: req.body.name,
-        //                         imageUrl: req.body.imageUrl,
-        //                         price: req.body.price,
-        //                     },
-        //                 },
-        //             }
-        //         );
+        return await ProductCategory.findByIdAndDelete({
+            _id: req.body.itemToDelete,
+        });
     } catch (error) {
-        //         console.log(`unable to add new product item ${error}`);
+        console.log(`Could not delete product ${error}`);
     }
 }
 
-module.exports = { createNewProduct, getAllProducts, addNewProductItem };
+module.exports = { createNewProduct, getAllProducts, deleteProductCategory };

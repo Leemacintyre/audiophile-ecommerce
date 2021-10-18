@@ -3,6 +3,7 @@ import { shopDataActionTypes } from "./shopData.types";
 const INITIAL_STATE = {
     shopData: null,
     error: null,
+    currentProductId: 0,
 };
 
 export const shopReducer = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,16 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
                 shopData: action.payload,
             };
         case shopDataActionTypes.FETCH_SHOP_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+            };
+        case shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_SUCCESS:
+            return {
+                ...state,
+                currentProductId: action.payload,
+            };
+        case shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_FAILURE:
             return {
                 ...state,
                 error: action.payload,

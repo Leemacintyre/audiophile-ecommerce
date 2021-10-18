@@ -46,7 +46,20 @@ export const deleteProductItem = async (currentItemId) => {
     }
 };
 
-// http://localhost:8000/v1/google/logout
+export const deleteProductCategory = async (currentProductId) => {
+    const idToBeDeleted = await currentProductId;
+    try {
+        axios.delete("products/deleteCategoryItem", {
+            data: {
+                itemToDelete: currentProductId,
+            },
+        });
+        return idToBeDeleted;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 // TODO check if this is needed
 export const signOutGoogle = async () => {
     try {

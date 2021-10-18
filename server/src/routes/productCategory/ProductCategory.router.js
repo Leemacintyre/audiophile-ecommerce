@@ -4,13 +4,13 @@ const { checkLoggedIn } = require("../../middleware/checkLoggedIn");
 const {
     httpGetAllProducts,
     httpCreateProduct,
-    httpAddNewProductItem,
+    httpDeleteCategoryItem,
 } = require("./productCategory.controller");
 
 const shopDataRouter = express.Router();
 
 shopDataRouter.get("/", httpGetAllProducts);
 shopDataRouter.post("/createProduct", httpCreateProduct);
-shopDataRouter.post("/addProductItem", httpAddNewProductItem);
+shopDataRouter.delete("/deleteCategoryItem", httpDeleteCategoryItem);
 
 module.exports = shopDataRouter;

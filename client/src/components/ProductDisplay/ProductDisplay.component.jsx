@@ -18,9 +18,6 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, ge
 
     }, [getShopData, getProductItem, getCurrentUser])
 
-
-
-
     return (
         shopData && productItem &&
         <div>

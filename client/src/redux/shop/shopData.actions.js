@@ -1,10 +1,5 @@
 import { shopDataActionTypes } from "./shopData.types";
 
-// export const getShopData = (shopData) => ({
-//     type: shopDataActionTypes.GET_SHOP_DATA,
-//     payload: shopData,
-// });
-
 export const fetchShopDataStart = (shopData) => ({
     type: shopDataActionTypes.FETCH_SHOP_DATA_START,
     payload: shopData,
@@ -17,5 +12,20 @@ export const fetchShopDataSuccess = (shopData) => ({
 
 export const fetchShopDataFailure = (errorMessage) => ({
     type: shopDataActionTypes.FETCH_SHOP_DATA_FAILURE,
+    payload: errorMessage,
+});
+
+export const fetchDeleteProductCategoryStart = (productId) => ({
+    type: shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_START,
+    payload: productId,
+});
+
+export const fetchDeleteProductCategorySuccess = (productId) => ({
+    type: shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_FAILURE,
+    payload: productId,
+});
+
+export const fetchDeleteProductCategoryFailure = (errorMessage) => ({
+    type: shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_FAILURE,
     payload: errorMessage,
 });

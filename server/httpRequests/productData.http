@@ -24,6 +24,16 @@ content-type: application/json
 
 ###
 
+# Delete product category
+DELETE  http://localhost:8000/v1/products/deleteCategoryItem
+content-type: application/json
+
+{
+    "itemToDelete": "6161ff54be549b1fc8bccef8"
+}
+
+###
+
 # get all product items for a user
 POST  http://localhost:8000/v1/productItem/
 content-type: application/json

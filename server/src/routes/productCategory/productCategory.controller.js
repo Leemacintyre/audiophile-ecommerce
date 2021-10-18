@@ -1,7 +1,7 @@
 const {
     createNewProduct,
     getAllProducts,
-    addNewProductItem,
+    deleteProductCategory,
 } = require("../../models/productCategory/productCategory.model");
 
 async function httpGetAllProducts(req, res) {
@@ -24,18 +24,20 @@ async function httpCreateProduct(req, res) {
     }
 }
 
-async function httpAddNewProductItem(req, res) {
+async function httpDeleteCategoryItem(req, res) {
     try {
-        return res.status(201).json(await addNewProductItem(req));
+        console.log("test");
+        return res.status(204).json(await deleteProductCategory(req));
     } catch (error) {
+        console.log("test2");
         return res
             .status(400)
-            .json({ error: error, location: "createNewProductItem" });
+            .json({ error: error, location: "httpDeleteCategoryItem" });
     }
 }
 
 module.exports = {
     httpGetAllProducts,
     httpCreateProduct,
-    httpAddNewProductItem,
+    httpDeleteCategoryItem,
 };

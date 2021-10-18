@@ -32,8 +32,10 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
             "price": parseFloat(price)
         })
         setStockItem(initialState)
+        toggleModal()
     }
-    console.log();
+
+
     return (
         <>
             <BiAddToQueue onClick={() => toggleModal(currentProductCategoryId)} />
