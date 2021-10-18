@@ -34,7 +34,7 @@ const ProductDisplayCard = ({ shopData, productItems, deleteCategory, deleteItem
                                 </div>
                             </div>
                             <div className="productDisplayCard-icon">
-                                <DeleteStockItem toDelete={deleteItem} idToDelete={sData._id} />
+                                <DeleteStockItem toDelete={deleteCategory} idToDelete={sData._id} />
                             </div>
                         </div>
                         <div className="productDisplayCard-item">
@@ -49,7 +49,7 @@ const ProductDisplayCard = ({ shopData, productItems, deleteCategory, deleteItem
                                                         <EditStockItemComponent toggleModal={toggleModal} currentProductCategoryId={sData._id} itemTitle={item.itemName} currentItemId={item._id} showModal={showModal} />
                                                     </div>
                                                     <div className="productDisplayCard-icon">
-                                                        <DeleteStockItem toDelete={deleteCategory} idToDelete={item._id} />
+                                                        <DeleteStockItem toDelete={deleteItem} idToDelete={item._id} />
                                                     </div>
                                                 </div>
                                                 <img className="productDisplayCard-image" src={item.imageUrl} alt="" />

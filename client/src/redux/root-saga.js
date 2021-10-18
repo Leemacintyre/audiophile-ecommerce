@@ -1,6 +1,9 @@
 import { all, call } from "redux-saga/effects";
 
-import { fetchShopDataStart } from "./shop/shopData.saga";
+import {
+    fetchShopDataStart,
+    fetchDeleteProductCategoryStart,
+} from "./shop/shopData.saga";
 import {
     fetchProductItemStart,
     fetchCurrentTitleIdStart,
@@ -14,5 +17,6 @@ export function* rootSaga() {
         call(fetchProductItemStart),
         call(fetchUserStart),
         call(fetchCurrentTitleIdStart),
+        call(fetchDeleteProductCategoryStart),
     ]);
 }

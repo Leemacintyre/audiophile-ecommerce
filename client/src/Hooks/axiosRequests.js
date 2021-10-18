@@ -54,7 +54,7 @@ export const deleteProductCategory = async (currentProductId) => {
                 itemToDelete: currentProductId,
             },
         });
-        return idToBeDeleted;
+        return `deleted ${idToBeDeleted}`;
     } catch (error) {
         console.log(error);
     }
