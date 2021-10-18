@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { selectCurrentUserId } from '../../redux/user/user.selectors';
-import CustomButton from '../CustomButton/CustomButton.component';
 import LabeledInput from '../LabeledInput/LabeledInput.component';
 import './AddStockItem.component.scss'
 import ModelSm from '../ModalSm/ModelSm.component';
@@ -13,9 +11,9 @@ import { BiAddToQueue } from "react-icons/bi";
 
 const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, ...props }) => {
 
-    const initialState = { itemName: '', imageUrl: '', price: '' }
-    const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '' })
-    const { imageUrl, itemName, price } = stockItem
+    const initialState = { itemName: '', imageUrl: '', price: '', quantity: '' }
+    const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '' })
+    const { imageUrl, itemName, price, quantity } = stockItem
 
     const handleChange = event => {
         const { value, name } = event.target;
@@ -29,12 +27,12 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
             "ProductCategoryId": currentProductCategoryId,
             "itemName": itemName,
             "imageUrl": imageUrl,
+            "quantity": quantity,
             "price": parseFloat(price)
         })
         setStockItem(initialState)
         toggleModal()
     }
-
 
     return (
         <>
@@ -67,6 +65,13 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
                     handleChange={handleChange}
                     label='PRICE (£)'
                     required />
+                <LabeledInput
+                    name="quantity"
+                    type="number"
+                    value={quantity}
+                    handleChange={handleChange}
+                    label='STOCK'
+                    required />
             </ModelSm>
             }
         </>
@@ -79,4 +84,8 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps,)(AddStockItem);
+const mapDispatchToProps = dispatch => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddStockItem);

@@ -55,7 +55,7 @@ const ProductDisplayCard = ({ shopData, productItems, deleteCategory, deleteItem
                                                 <img className="productDisplayCard-image" src={item.imageUrl} alt="" />
                                                 <div className="productDisplayCard-itemName">{item.itemName}</div>
                                                 <div className="productDisplayCard-price">Cost per unit:<strong> £{item.price}</strong></div>
-                                                <div className="productDisplayCard-quantity">Stock level:<strong> 14</strong> </div>
+                                                <div className="productDisplayCard-quantity">Stock level:<strong> {item.quantity} Units</strong> </div>
                                             </div>
                                         )
                                     }
@@ -72,7 +72,7 @@ const ProductDisplayCard = ({ shopData, productItems, deleteCategory, deleteItem
 
 const mapDispatchToProps = (dispatch) => ({
     deleteItem: (currentItemId) => dispatch(fetchCurrentItemIdStart(currentItemId)),
-    deleteCategory: (categoryId) => dispatch(fetchDeleteProductCategoryStart(categoryId))
+    deleteCategory: (categoryId) => dispatch(fetchDeleteProductCategoryStart(categoryId)),
 })
 
 export default connect(null, mapDispatchToProps)(ProductDisplayCard)

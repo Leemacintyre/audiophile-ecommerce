@@ -8,6 +8,7 @@ async function createNewItem(req, res) {
             userId: req.body.userId,
             itemName: req.body.itemName,
             imageUrl: req.body.imageUrl,
+            quantity: req.body.quantity,
             price: req.body.price,
         });
         console.log(newItem);
@@ -24,6 +25,7 @@ async function updateProductItem(req, res) {
             userId: req.body.userId,
             itemName: req.body.itemName,
             imageUrl: req.body.imageUrl,
+            quantity: req.body.quantity,
             price: req.body.price,
         };
         console.log(updatedItem);

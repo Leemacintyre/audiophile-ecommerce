@@ -15,7 +15,6 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, ge
     useEffect(() => {
         getProductItem()
         getShopData()
-
     }, [getShopData, getProductItem, getCurrentUser])
 
     return (
@@ -42,7 +41,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     getProductItem: () => dispatch(fetchProductItemStart()),
     getShopData: () => dispatch(fetchShopDataStart()),
-    getCurrentUser: () => dispatch(fetchUserStart())
+    getCurrentUser: () => dispatch(fetchUserStart()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay)

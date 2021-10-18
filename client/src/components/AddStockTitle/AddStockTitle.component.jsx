@@ -7,8 +7,9 @@ import LabeledInput from '../LabeledInput/LabeledInput.component';
 import { selectCurrentUserId } from '../../redux/user/user.selectors';
 import axios from 'axios';
 import { fetchShopDataStart } from '../../redux/shop/shopData.actions';
+import { selectShopData } from '../../redux/shop/shopData.selectors';
 
-const AddStockTitle = ({ currentUserId, getShopData }) => {
+const AddStockTitle = ({ currentUserId, getShopData, shopData }) => {
     console.log("currentUserId", currentUserId);
     const [categoryTitle, setCategoryTitle] = useState('')
 
@@ -40,7 +41,8 @@ const AddStockTitle = ({ currentUserId, getShopData }) => {
 };
 
 const mapStateToProps = (state) => ({
-    currentUserId: selectCurrentUserId(state)
+    currentUserId: selectCurrentUserId(state),
+    shopData: selectShopData(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
