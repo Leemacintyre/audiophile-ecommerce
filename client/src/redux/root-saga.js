@@ -7,6 +7,8 @@ import {
 import {
     fetchProductItemStart,
     fetchCurrentTitleIdStart,
+    fetchAddNewProductItemStart,
+    fetchUpdateProductItemStart,
 } from "./productItem/productItem.saga";
 import { fetchUserStart, signOutStart } from "./user/user.saga";
 
@@ -18,5 +20,7 @@ export function* rootSaga() {
         call(fetchUserStart),
         call(fetchCurrentTitleIdStart),
         call(fetchDeleteProductCategoryStart),
+        call(fetchAddNewProductItemStart),
+        call(fetchUpdateProductItemStart),
     ]);
 }

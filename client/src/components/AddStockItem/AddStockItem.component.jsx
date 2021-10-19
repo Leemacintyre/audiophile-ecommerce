@@ -7,12 +7,14 @@ import './AddStockItem.component.scss'
 import ModelSm from '../ModalSm/ModelSm.component';
 
 import { BiAddToQueue } from "react-icons/bi";
+import { fetchAddNewProductItemStart, fetchProductItemStart } from '../../redux/productItem/productItem.actions';
+// import { addNewProductItem } from '../../Hooks/axiosRequests';
 
 
-const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, ...props }) => {
+const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, getProductItem, addNewProductItem, ...props }) => {
 
-    const initialState = { itemName: '', imageUrl: '', price: '', quantity: '' }
-    const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '' })
+    const initialState = { itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId }
+    const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId })
     const { imageUrl, itemName, price, quantity } = stockItem
 
     const handleChange = event => {
@@ -22,15 +24,10 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post("productItem/createProductItem", {
-            "userId": currentUserId,
-            "ProductCategoryId": currentProductCategoryId,
-            "itemName": itemName,
-            "imageUrl": imageUrl,
-            "quantity": quantity,
-            "price": parseFloat(price)
-        })
+        addNewProductItem(stockItem)
+        console.log(stockItem);
         setStockItem(initialState)
+        getProductItem()
         toggleModal()
     }
 
@@ -85,7 +82,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-
+    addNewProductItem: (newItem) => dispatch(fetchAddNewProductItemStart(newItem)),
+    getProductItem: () => dispatch(fetchProductItemStart()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddStockItem);

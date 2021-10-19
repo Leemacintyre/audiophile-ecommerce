@@ -3,7 +3,9 @@ import { productItemActionTypes } from "./productItem.types";
 const INITIAL_STATE = {
     productItem: null,
     error: null,
-    currentItemId: 0,
+    currentItemId: null,
+    newProductItem: null,
+    updateProductItem: null,
 };
 
 export const productItemReducer = (state = INITIAL_STATE, action) => {
@@ -27,6 +29,21 @@ export const productItemReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 error: action.payload,
+            };
+        case productItemActionTypes.FETCH_ADD_NEW_PRODUCT_ITEM_SUCCESS:
+            return {
+                ...state,
+                newProductItem: action.payload,
+            };
+        case productItemActionTypes.FETCH_UPDATE_PRODUCT_ITEM_SUCCESS:
+            return {
+                ...state,
+                updateProductItem: action.payload,
+            };
+        case productItemActionTypes.FETCH_UPDATE_PRODUCT_ITEM_FAILURE:
+            return {
+                ...state,
+                updateProductItem: action.payload,
             };
         default:
             return state;
