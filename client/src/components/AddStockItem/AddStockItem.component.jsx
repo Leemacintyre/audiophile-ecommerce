@@ -24,10 +24,11 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
 
     const handleSubmit = (event) => {
         event.preventDefault()
+
         addNewProductItem(stockItem)
-        console.log(stockItem);
+        console.log("stockItems", stockItem);
         setStockItem(initialState)
-        getProductItem()
+        // getProductItem()
         toggleModal()
     }
 

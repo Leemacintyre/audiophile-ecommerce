@@ -62,14 +62,9 @@ export const getAllProductItems = async () => {
     return data;
 };
 
-export const addNewProductItem = async ({
-    userId,
-    ProductCategoryId,
-    itemName,
-    imageUrl,
-    quantity,
-    price,
-}) => {
+export const addNewProductItem = async (newItem) => {
+    const { userId, ProductCategoryId, itemName, imageUrl, quantity, price } =
+        newItem;
     console.log("axios-addNewProductItem");
     axios.post("productItem/createProductItem", {
         userId: userId,
@@ -79,35 +74,30 @@ export const addNewProductItem = async ({
         quantity: quantity,
         price: parseFloat(price),
     });
-    return `new product created ${itemName}`;
+    return `new product created ${newItem}`;
 };
 
-export const updateProductItem = async ({
-    userId,
-    ProductCategoryId,
-    itemName,
-    imageUrl,
-    quantity,
-    price,
-}) => {
-    console.log(
-        "axios-updateProductItem",
+export const updateProductItem = async (newItem) => {
+    const {
         userId,
         ProductCategoryId,
         itemName,
         imageUrl,
         quantity,
-        price
-    );
+        price,
+        itemToUpdate,
+    } = newItem;
+    console.log("axios-updateProductItem");
     axios.put("productItem/updateProductItem", {
         userId: userId,
+        itemToUpdate: itemToUpdate,
         ProductCategoryId: ProductCategoryId,
         itemName: itemName,
         imageUrl: imageUrl,
         quantity: quantity,
         price: parseFloat(price),
     });
-    return `updated product item ${itemName}`;
+    return `updated product item ${newItem}`;
 };
 
 export const deleteProductItem = async (currentItemId) => {

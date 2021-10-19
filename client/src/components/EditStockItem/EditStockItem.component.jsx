@@ -5,19 +5,15 @@ import LabeledInput from '../LabeledInput/LabeledInput.component';
 import ModelSm from '../ModalSm/ModelSm.component';
 import { GrEdit } from 'react-icons/gr';
 
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { selectCurrentUserId } from '../../redux/user/user.selectors';
 import { fetchUpdateProductItemStart } from '../../redux/productItem/productItem.actions';
 
 
 const EditStockItem = ({ currentUserId, currentProductCategoryId, toggleModal, itemTitle, showModal: { openModal, modalId }, currentItemId, updateProductItem, ...props }) => {
-    // const initialState = { itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId }
-    // const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId })
-    // const { imageUrl, itemName, price, quantity } = stockItem
 
-    const initialState = { itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId }
-    const [updateItem, setUpdateItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId })
+    const initialState = { itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId, itemToUpdate: currentItemId }
+    const [updateItem, setUpdateItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId, itemToUpdate: currentItemId })
     const { itemName, imageUrl, price, quantity } = updateItem
 
     const handleChange = event => {
@@ -37,6 +33,7 @@ const EditStockItem = ({ currentUserId, currentProductCategoryId, toggleModal, i
         updateProductItem(updateItem)
         console.log(updateItem);
         setUpdateItem(initialState)
+
         toggleModal()
     }
 
@@ -89,7 +86,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    updateProductItem: (newItem) => dispatch(fetchUpdateProductItemStart(newItem))
+    updateProductItem: (newItem) => dispatch(fetchUpdateProductItemStart(newItem)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditStockItem);

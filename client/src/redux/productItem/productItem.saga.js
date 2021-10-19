@@ -44,22 +44,22 @@ export function* fetchCurrentItemIdAsync(id) {
 export function* fetchAddNewProductItemAsync(newItem) {
     yield console.log("fetchAddNewProductItemAsync", newItem);
     try {
-        const data = yield call(addNewProductItem, newItem);
+        const data = yield call(addNewProductItem, newItem.payload);
         yield put(fetchAddNewProductItemSuccess(data));
         const newProductData = yield call(getAllProductItems);
-        yield put(fetchCurrentItemIdSuccess(newProductData));
+        yield put(fetchProductItemSuccess(newProductData));
     } catch (error) {
         yield put(fetchAddNewProductItemFailure(error.message));
     }
 }
 
 export function* fetchUpdateProductItemAsync(newItem) {
-    yield console.log("fetchUpdateProductItemAsync", newItem);
+    yield console.log("fetchUpdateProductItemAsync", newItem.payload);
     try {
-        const data = yield call(updateProductItem, newItem);
+        const data = yield call(updateProductItem, newItem.payload);
         yield put(fetchUpdateProductItemSuccess(data));
-        const updatedProductItems = yield call(getAllProductItems);
-        yield put(fetchCurrentItemIdSuccess(updatedProductItems));
+        const newProductData = yield call(getAllProductItems);
+        yield put(fetchProductItemSuccess(newProductData));
     } catch (error) {
         yield put(fetchUpdateProductItemFailure(error.message));
     }
