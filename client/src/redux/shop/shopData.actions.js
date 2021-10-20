@@ -29,3 +29,16 @@ export const fetchDeleteProductCategoryFailure = (errorMessage) => ({
     type: shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_FAILURE,
     payload: errorMessage,
 });
+
+export const fetchAddNewShopCategoryStart = (newCategory) => ({
+    type: shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_START,
+    payload: newCategory,
+});
+export const fetchAddNewShopCategorySuccess = (newCategory) => ({
+    type: shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_SUCCESS,
+    payload: newCategory,
+});
+export const fetchAddNewShopCategoryFailure = (errorMessage) => ({
+    type: shopDataActionTypes.FETCH_DELETE_PRODUCT_CATEGORY_FAILURE,
+    payload: errorMessage,
+});

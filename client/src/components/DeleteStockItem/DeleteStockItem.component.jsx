@@ -1,16 +1,13 @@
 import React from 'react';
 
 import { RiDeleteBin5Line } from 'react-icons/ri';
-// import { connect } from 'react-redux';
-// import { fetchCurrentItemIdStart } from '../../redux/productItem/productItem.actions';
 
 
-const DeleteStockItem = ({ idToDelete, currentItemId, toDelete, }) => {
-    // console.log(idToDelete);
+const DeleteStockItem = ({ idToDelete, toDelete, }) => {
 
     const deleteId = async () => {
         // console.log(idToDelete);
-        await toDelete(idToDelete);
+        toDelete(idToDelete);
     }
 
     return (
@@ -18,10 +15,5 @@ const DeleteStockItem = ({ idToDelete, currentItemId, toDelete, }) => {
     );
 };
 
-// const mapStateToProps = (state) => ({})
-
-// const mapDispatchToProps = (dispatch) => ({
-//     currentItemId: (currentItemId) => dispatch(fetchCurrentItemIdStart(currentItemId)),
-// })
 
 export default DeleteStockItem;

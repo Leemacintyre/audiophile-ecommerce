@@ -6,21 +6,25 @@ import CustomButton from '../CustomButton/CustomButton.component';
 import LabeledInput from '../LabeledInput/LabeledInput.component';
 import { selectCurrentUserId } from '../../redux/user/user.selectors';
 import axios from 'axios';
-import { fetchShopDataStart } from '../../redux/shop/shopData.actions';
+import { fetchAddNewShopCategoryStart, fetchShopDataStart } from '../../redux/shop/shopData.actions';
 import { selectShopData } from '../../redux/shop/shopData.selectors';
 
-const AddStockTitle = ({ currentUserId, getShopData, shopData }) => {
+const AddStockTitle = ({ currentUserId, getShopData, shopData, addNewProductCategory }) => {
     console.log("currentUserId", currentUserId);
-    const [categoryTitle, setCategoryTitle] = useState('')
+    const initialState = { userId: currentUserId, product: '' }
+    const [categoryTitle, setCategoryTitle] = useState({ userId: currentUserId, product: '' })
+    const { product } = categoryTitle
 
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post("products/createProduct", {
-            "userId": currentUserId,
-            "product": categoryTitle
-        })
-        setCategoryTitle("")
+        // axios.post("products/createProduct", {
+        //     "userId": currentUserId,
+        //     "product": categoryTitle
+        // })
+        addNewProductCategory(categoryTitle)
+        console.log("test", categoryTitle);
+        setCategoryTitle(initialState)
         getShopData()
     }
 
@@ -33,7 +37,7 @@ const AddStockTitle = ({ currentUserId, getShopData, shopData }) => {
         <div className="addStockContainer" >
             <CustomButton onClick={(e) => handleSubmit(e)} type="submit" >NEW CATEGORY</CustomButton>
             <div className="addStock-input">
-                <LabeledInput handleChange={e => handleChange(e)} value={categoryTitle} />
+                <LabeledInput handleChange={e => handleChange(e)} value={product} />
             </div>
         </div>
 
@@ -47,6 +51,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getShopData: () => dispatch(fetchShopDataStart()),
+    addNewProductCategory: (newProduct) => dispatch(fetchAddNewShopCategoryStart(newProduct))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddStockTitle);

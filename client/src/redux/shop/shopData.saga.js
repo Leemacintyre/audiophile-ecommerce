@@ -1,5 +1,6 @@
 import { takeLatest, put, call } from "redux-saga/effects";
 import {
+    addNewCategoryTitle,
     deleteProductCategory,
     getAllProductCategory,
 } from "../../Hooks/axiosRequests";
@@ -10,6 +11,8 @@ import {
     fetchShopDataSuccess,
     fetchDeleteProductCategorySuccess,
     fetchDeleteProductCategoryFailure,
+    fetchAddNewShopCategorySuccess,
+    fetchAddNewShopCategoryFailure,
 } from "./shopData.actions";
 
 export function* fetchShopDataAsync() {
@@ -21,6 +24,19 @@ export function* fetchShopDataAsync() {
         yield put(fetchShopDataFailure(error.message));
     }
 }
+
+export function* addNewProductCategoryAsync(newProduct) {
+    yield console.log("addNewProductCategoryAsync");
+    try {
+        const data = yield call(addNewCategoryTitle, newProduct.payload);
+        yield put(fetchAddNewShopCategorySuccess(data));
+        const newProductCategory = yield call(getAllProductCategory);
+        yield put(fetchShopDataSuccess(newProductCategory));
+    } catch (error) {
+        yield put(fetchAddNewShopCategoryFailure(error.message));
+    }
+}
+
 export function* deleteProductCategoryAsync(id) {
     yield console.log("deleteProductCategoryAsync");
     try {
@@ -37,6 +53,13 @@ export function* fetchShopDataStart() {
     yield takeLatest(
         shopDataActionTypes.FETCH_SHOP_DATA_START,
         fetchShopDataAsync
+    );
+}
+
+export function* fetchAddNewShopCategoryStart() {
+    yield takeLatest(
+        shopDataActionTypes.FETCH_ADD_NEW_SHOP_CATEGORY_START,
+        addNewProductCategoryAsync
     );
 }
 

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { selectCurrentUserId } from '../../redux/user/user.selectors';
@@ -8,10 +7,9 @@ import ModelSm from '../ModalSm/ModelSm.component';
 
 import { BiAddToQueue } from "react-icons/bi";
 import { fetchAddNewProductItemStart, fetchProductItemStart } from '../../redux/productItem/productItem.actions';
-// import { addNewProductItem } from '../../Hooks/axiosRequests';
 
 
-const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, getProductItem, addNewProductItem, ...props }) => {
+const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, addNewProductItem, getProductItem, ...props }) => {
 
     const initialState = { itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId }
     const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId })
@@ -28,8 +26,8 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
         addNewProductItem(stockItem)
         console.log("stockItems", stockItem);
         setStockItem(initialState)
-        // getProductItem()
         toggleModal()
+        getProductItem()
     }
 
     return (

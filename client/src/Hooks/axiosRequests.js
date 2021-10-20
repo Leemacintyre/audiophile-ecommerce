@@ -38,6 +38,18 @@ export const getAllProductCategory = async () => {
     return data;
 };
 
+export const addNewCategoryTitle = async (newCategory) => {
+    const { currentUserId, categoryTitle } = newCategory;
+    try {
+        axios.post("products/createProduct", {
+            userId: currentUserId,
+            product: categoryTitle,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const deleteProductCategory = async (currentProductId) => {
     const idToBeDeleted = await currentProductId;
     try {

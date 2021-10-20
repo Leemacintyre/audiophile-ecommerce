@@ -3,7 +3,8 @@ import { shopDataActionTypes } from "./shopData.types";
 const INITIAL_STATE = {
     shopData: null,
     error: null,
-    currentProductId: 0,
+    currentProductId: null,
+    newProductCategory: null,
 };
 
 export const shopReducer = (state = INITIAL_STATE, action) => {
@@ -27,6 +28,16 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 error: action.payload,
+            };
+        case shopDataActionTypes.FETCH_ADD_NEW_SHOP_CATEGORY_SUCCESS:
+            return {
+                ...state,
+                newProductCategory: action.payload,
+            };
+        case shopDataActionTypes.FETCH_ADD_NEW_SHOP_CATEGORY_FAILURE:
+            return {
+                ...state,
+                newProductCategory: action.payload,
             };
         default:
             return state;
