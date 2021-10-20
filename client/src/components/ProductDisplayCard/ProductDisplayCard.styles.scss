@@ -1,8 +1,8 @@
 .productDisplayCard-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     @apply rounded;
     .productDisplayCard-category-container {
-        border: 1px solid black;
+        /* border: 1px solid black; */
         @apply my-1;
         .productDisplayCard-titleText {
             @apply py-2;
@@ -35,7 +35,7 @@
             }
         }
         .productDisplayCard-item {
-            border: 1px solid orange;
+            /* border: 1px solid orange; */
             @apply flex 
             flex-wrap;
 

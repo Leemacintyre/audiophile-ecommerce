@@ -29,15 +29,22 @@ const AddStockTitle = ({ currentUserId, getShopData, shopData, addNewProductCate
     }
 
     const handleChange = (event) => {
-        const { value } = event.target;
-        setCategoryTitle(value);
+        const { value, name } = event.target;
+        setCategoryTitle({ ...categoryTitle, [name]: value });
     }
+
 
     return (
         <div className="addStockContainer" >
             <CustomButton onClick={(e) => handleSubmit(e)} type="submit" >NEW CATEGORY</CustomButton>
             <div className="addStock-input">
-                <LabeledInput handleChange={e => handleChange(e)} value={product} />
+                {/* <LabeledInput handleChange={e => handleChange(e)} value={product} /> */}
+                <LabeledInput
+                    name="product"
+                    type="text"
+                    value={product}
+                    handleChange={handleChange}
+                />
             </div>
         </div>
 

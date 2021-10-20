@@ -39,11 +39,12 @@ export const getAllProductCategory = async () => {
 };
 
 export const addNewCategoryTitle = async (newCategory) => {
-    const { currentUserId, categoryTitle } = newCategory;
+    const { userId, product } = newCategory;
+    console.log("axios-addNewCategoryTitle", newCategory, userId, product);
     try {
         axios.post("products/createProduct", {
-            userId: currentUserId,
-            product: categoryTitle,
+            userId: userId,
+            product: product,
         });
     } catch (error) {
         console.log(error);

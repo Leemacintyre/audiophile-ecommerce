@@ -3,6 +3,7 @@ import { all, call } from "redux-saga/effects";
 import {
     fetchShopDataStart,
     fetchDeleteProductCategoryStart,
+    fetchAddNewShopCategoryStart,
 } from "./shop/shopData.saga";
 import {
     fetchProductItemStart,
@@ -22,5 +23,6 @@ export function* rootSaga() {
         call(fetchDeleteProductCategoryStart),
         call(fetchAddNewProductItemStart),
         call(fetchUpdateProductItemStart),
+        call(fetchAddNewShopCategoryStart),
     ]);
 }
