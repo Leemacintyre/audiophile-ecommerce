@@ -1,8 +1,8 @@
 const {
     createNewProduct,
     getAllProducts,
-    deleteProductCategory,
-} = require("../../models/productCategory/productCategory.model");
+    deleteProductCategory 
+} = require("../../models/ProductCategory/productCategory.model");
 
 async function httpGetAllProducts(req, res) {
     try {
