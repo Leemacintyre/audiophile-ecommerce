@@ -2,7 +2,7 @@
     "name": "audiophile-ecommerce",
     "version": "1.0.0",
     "description": "",
-    "main": "./server/src/app.js",
+    "main": "index.js",
     "scripts": {
         "start": "node server/src/server.js",
         "heroku-postbuild": "npm run install-server",
