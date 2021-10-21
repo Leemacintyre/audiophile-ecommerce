@@ -15,6 +15,7 @@ const NavBar = ({ currentUser }) => {
                     {currentUser ? <Link to={'/test'} className="navBar-link">TEST</Link> : <Link to={'/login'} className="navBar-link">TEST</Link>}
                     {currentUser ? <Link to={'/product'} className="navBar-link">STOCK</Link> : <Link to={'/login'} className="navBar-link">STOCK</Link>}
                     {currentUser ? <a href="https://the-dealer-portal.herokuapp.com/v1/google/logout" className="NavBar-link">LOGOUT</a> : null}
+                    {/* {currentUser ? <a href="http://localhost:8000/v1/google/logout" className="NavBar-link">LOGOUT</a> : null} */}
                 </div>
             </div>
         </>
