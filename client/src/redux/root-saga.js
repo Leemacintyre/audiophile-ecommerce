@@ -15,14 +15,18 @@ import { fetchUserStart, signOutStart } from "./user/user.saga";
 
 export function* rootSaga() {
     yield all([
+        // USER
         call(signOutStart),
-        call(fetchShopDataStart),
-        call(fetchProductItemStart),
         call(fetchUserStart),
+        // SHOP DATA
+        call(fetchShopDataStart),
         call(fetchCurrentTitleIdStart),
+        call(fetchAddNewShopCategoryStart),
+        //  SHOP PRODUCTS
         call(fetchDeleteProductCategoryStart),
+        call(fetchProductItemStart),
         call(fetchAddNewProductItemStart),
         call(fetchUpdateProductItemStart),
-        call(fetchAddNewShopCategoryStart),
+        // CLIENT LIST
     ]);
 }
