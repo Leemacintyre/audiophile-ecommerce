@@ -1,7 +1,7 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3000/v1/";
-// axios.defaults.baseURL = "https://the-dealer-portal.herokuapp.com/v1/";
+// axios.defaults.baseURL = "http://localhost:3000/v1/";
+axios.defaults.baseURL = "https://the-dealer-portal.herokuapp.com/v1/";
 
 export const getCurrentUser = async () => {
     try {
