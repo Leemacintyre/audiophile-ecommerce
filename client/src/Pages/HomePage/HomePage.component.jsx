@@ -16,13 +16,13 @@ const HomePage = ({ currentUser, getCurrentUser }) => {
             <button onClick={() => currentUser()}>test here</button> <br />
             <button >test here</button> <br />
 
-            <a href="http://localhost:8000/v1/google/auth/google">login </a>
+            {/* <a href="http://localhost:8000/v1/google/auth/google">login </a>
             <br />
             <a href="http://localhost:8000/v1/google/checklog"> check log </a>
             <br />
             <a href="http://localhost:8000/v1/google/logout"> logout</a>
             <br />
-            <a href="http://localhost:8000/v1/currentuser"> currentUser</a>
+            <a href="http://localhost:8000/v1/currentuser"> currentUser</a> */}
         </div>
     )
 }

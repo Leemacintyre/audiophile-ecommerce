@@ -11,7 +11,8 @@ const LoginDisplay = () => {
     return (
         <div className="loginDisplay-container">
             <div className="loginDisplay-googleSignIn">
-                <a href="http://localhost:8000/v1/google/auth/google">
+                {/* <a href="http://localhost:8000/v1/google/auth/google"> */}
+                <a href="https://the-dealer-portal.herokuapp.com//v1/google/auth/google">
                     <CustomButton isGoogleSignIn>SignIn With Google</CustomButton>
                 </a>
                 <CustomButton>Sign In (not working yet)</CustomButton>
