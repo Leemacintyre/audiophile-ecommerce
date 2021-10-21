@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './EditStockItem.styles.scss'
 
 import LabeledInput from '../LabeledInput/LabeledInput.component';
-import ModelSm from '../ModalSm/ModelSm.component';
+import ModalSm from '../ModalSm/ModalSm.component';
 import { GrEdit } from 'react-icons/gr';
 
 import { connect } from 'react-redux';
@@ -21,26 +21,18 @@ const EditStockItem = ({ currentUserId, currentProductCategoryId, toggleModal, i
         setUpdateItem({ ...updateItem, [name]: value })
     }
 
-    // event.preventDefault()
-    // addNewProductItem(stockItem)
-    // console.log(stockItem);
-    // setStockItem(initialState)
-    // getProductItem()
-    // toggleModal()
-
     const handleSubmit = (event) => {
         event.preventDefault()
         updateProductItem(updateItem)
         console.log(updateItem);
         setUpdateItem(initialState)
-
         toggleModal()
     }
 
     return (
         <>
             <GrEdit onClick={() => toggleModal(currentItemId)} />
-            {openModal && modalId === currentItemId && <ModelSm
+            {openModal && modalId === currentItemId && <ModalSm
                 title={itemTitle}
                 handleSubmit={handleSubmit}
                 toggleModal={toggleModal}
@@ -74,7 +66,7 @@ const EditStockItem = ({ currentUserId, currentProductCategoryId, toggleModal, i
                     handleChange={handleChange}
                     label='STOCK'
                     required />
-            </ModelSm>}
+            </ModalSm>}
 
         </>
 

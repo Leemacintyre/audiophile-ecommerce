@@ -16,11 +16,11 @@ const LoginDisplay = () => {
                 </a>
                 <CustomButton>Sign In (not working yet)</CustomButton>
             </div>
-
+            {/* 
             <a href="http://localhost:8000/v1/google/auth/google">login </a>
             <a href="http://localhost:8000/v1/google/checklog"> check log </a>
             <a href="http://localhost:8000/v1/google/logout"> logout</a>
-            <a href="http://localhost:8000/v1/currentuser"> currentUser</a>
+            <a href="http://localhost:8000/v1/currentuser"> currentUser</a> */}
         </div>
     )
 }

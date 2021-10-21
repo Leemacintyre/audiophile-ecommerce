@@ -12,10 +12,8 @@ const ProductDisplayCard = ({ shopData, productItems, deleteCategory, deleteItem
     const [showModal, setShowModal] = useState({ openModal: false, modalId: null })
 
     const toggleModal = (Id = null) => {
-        // console.log(showModal, Id)
         const { openModal } = showModal
         setShowModal({ openModal: !openModal, modalId: Id })
-        // console.log(showModal)
     }
 
 
@@ -30,7 +28,6 @@ const ProductDisplayCard = ({ shopData, productItems, deleteCategory, deleteItem
                                 <div className="productDisplayCard-titleText">{sData.product}</div>
                                 <div className="productDisplayCard-icon">
                                     <AddStockItem toggleModal={toggleModal} currentProductCategoryId={sData._id} categoryTitle={sData.product} showModal={showModal} />
-                                    {/* <BiAddToQueue onClick={() => history.push(`/product/new/${sData._id}`)} /> */}
                                 </div>
                             </div>
                             <div className="productDisplayCard-icon">
@@ -44,7 +41,6 @@ const ProductDisplayCard = ({ shopData, productItems, deleteCategory, deleteItem
                                         return (
                                             <div className="productDisplayCard-card-container" key={item._id}>
                                                 <div className="productDisplayCard-iconContainer">
-                                                    {/* <span className="productDisplayCard-icon" onClick={() => history.push(`/product/update/${sData._id}/${item._id}`)}><RiEdit2Line /></span> */}
                                                     <div className="productDisplayCard-icon">
                                                         <EditStockItemComponent toggleModal={toggleModal} currentProductCategoryId={sData._id} itemTitle={item.itemName} currentItemId={item._id} showModal={showModal} />
                                                     </div>

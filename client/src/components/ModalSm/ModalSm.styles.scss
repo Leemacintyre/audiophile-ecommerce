@@ -7,7 +7,7 @@
             .addStockItem-titleContainer {
                 @apply flex items-start justify-between p-5 border-b border-solid border-purple-200 bg-purple-700 rounded-t-2xl;
                 .addStockItem-title {
-                    @apply text-3xl font-semibold;
+                    @apply text-3xl capitalize font-semibold;
                 }
             }
             .addStockItem-modalBody {

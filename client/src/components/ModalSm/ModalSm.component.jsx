@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomButton from '../CustomButton/CustomButton.component'
-import './ModelSm.styles.scss'
-const ModelSm = ({ children, title, handleSubmit, toggleModal, currentProductCategoryId }) => {
+import './ModalSm.styles.scss'
+const ModalSm = ({ children, title, handleSubmit, toggleModal }) => {
 
 
 
@@ -14,7 +14,7 @@ const ModelSm = ({ children, title, handleSubmit, toggleModal, currentProductCat
                     <div className="addStockItem-modalBg">
                         {/*header*/}
                         <div className="addStockItem-titleContainer">
-                            <h3 className="text-3xl font-semibold" >
+                            <h3 className="addStockItem-title" >
                                 {title}
                             </h3>
 
@@ -37,4 +37,4 @@ const ModelSm = ({ children, title, handleSubmit, toggleModal, currentProductCat
     )
 }
 
-export default ModelSm
+export default ModalSm

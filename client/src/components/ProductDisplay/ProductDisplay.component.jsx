@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './ProductDisplay.styles.scss'
 import { connect } from 'react-redux'
 import { fetchProductItemStart } from '../../redux/productItem/productItem.actions'
@@ -24,10 +24,10 @@ const ProductDisplay = ({ shopData, getShopData, productItem, getProductItem, ge
                 <AddStockTitle />
             </div>
             <ProductDisplayCard shopData={shopData} productItems={productItem} />
-            <a href="http://localhost:8000/v1/google/auth/google">login </a>
+            {/* <a href="http://localhost:8000/v1/google/auth/google">login </a>
             <a href="http://localhost:8000/v1/google/checklog"> check log </a>
             <a href="http://localhost:8000/v1/google/logout"> logout</a>
-            <a href="http://localhost:8000/v1/currentuser"> currentUser</a>
+            <a href="http://localhost:8000/v1/currentuser"> currentUser</a> */}
         </div>
     )
 }

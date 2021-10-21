@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import CustomButton from '../CustomButton/CustomButton.component';
 import LabeledInput from '../LabeledInput/LabeledInput.component';
 import { selectCurrentUserId } from '../../redux/user/user.selectors';
-import axios from 'axios';
 import { fetchAddNewShopCategoryStart, fetchShopDataStart } from '../../redux/shop/shopData.actions';
 import { selectShopData } from '../../redux/shop/shopData.selectors';
 
@@ -18,14 +17,10 @@ const AddStockTitle = ({ currentUserId, getShopData, shopData, addNewProductCate
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // axios.post("products/createProduct", {
-        //     "userId": currentUserId,
-        //     "product": categoryTitle
-        // })
         addNewProductCategory(categoryTitle)
         console.log("test", categoryTitle);
         setCategoryTitle(initialState)
-        getShopData()
+        // getShopData()
     }
 
     const handleChange = (event) => {
@@ -38,7 +33,6 @@ const AddStockTitle = ({ currentUserId, getShopData, shopData, addNewProductCate
         <div className="addStockContainer" >
             <CustomButton onClick={(e) => handleSubmit(e)} type="submit" >NEW CATEGORY</CustomButton>
             <div className="addStock-input">
-                {/* <LabeledInput handleChange={e => handleChange(e)} value={product} /> */}
                 <LabeledInput
                     name="product"
                     type="text"

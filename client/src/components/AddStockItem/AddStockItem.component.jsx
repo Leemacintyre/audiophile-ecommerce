@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { selectCurrentUserId } from '../../redux/user/user.selectors';
 import LabeledInput from '../LabeledInput/LabeledInput.component';
 import './AddStockItem.component.scss'
-import ModelSm from '../ModalSm/ModelSm.component';
+import ModalSm from '../ModalSm/ModalSm.component';
 
 import { BiAddToQueue } from "react-icons/bi";
-import { fetchAddNewProductItemStart, fetchProductItemStart } from '../../redux/productItem/productItem.actions';
+import { fetchAddNewProductItemStart } from '../../redux/productItem/productItem.actions';
 
 
-const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, addNewProductItem, getProductItem, ...props }) => {
+const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggleModal, currentProductCategoryId, categoryTitle, addNewProductItem, ...props }) => {
 
     const initialState = { itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId }
     const [stockItem, setStockItem] = useState({ itemName: '', imageUrl: '', price: '', quantity: '', userId: currentUserId, ProductCategoryId: currentProductCategoryId })
@@ -27,14 +27,14 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
         console.log("stockItems", stockItem);
         setStockItem(initialState)
         toggleModal()
-        getProductItem()
+
     }
 
     return (
         <>
             <BiAddToQueue onClick={() => toggleModal(currentProductCategoryId)} />
 
-            {openModal && modalId === currentProductCategoryId && <ModelSm
+            {openModal && modalId === currentProductCategoryId && <ModalSm
                 title={categoryTitle}
                 handleSubmit={handleSubmit}
                 toggleModal={toggleModal}
@@ -68,7 +68,7 @@ const AddStockItem = ({ currentUserId, showModal: { openModal, modalId }, toggle
                     handleChange={handleChange}
                     label='STOCK'
                     required />
-            </ModelSm>
+            </ModalSm>
             }
         </>
 
@@ -82,7 +82,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     addNewProductItem: (newItem) => dispatch(fetchAddNewProductItemStart(newItem)),
-    getProductItem: () => dispatch(fetchProductItemStart()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddStockItem);
