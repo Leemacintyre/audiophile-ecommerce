@@ -10,7 +10,7 @@ const api = express.Router();
 
 api.use("/currentUser", currentUserRouter);
 api.use("/google", googleAuthRouter);
-// api.use("/products", productCategoryRouter);
-// api.use("/productItem", productItemRouter);
+api.use("/products", productCategoryRouter);
+api.use("/productItem", productItemRouter);
 
 module.exports = api;
