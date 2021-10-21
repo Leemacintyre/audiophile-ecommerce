@@ -6,7 +6,7 @@ const {
     httpDeleteProductItem,
 } = require("./productItem.controller");
 
-const productItemRouter = express();
+const productItemRouter = express.Router();
 
 productItemRouter.get("/", httpGetAllProductItems);
 productItemRouter.post("/createProductItem", httpCreateProductItems);
