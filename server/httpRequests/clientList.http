@@ -1,0 +1,13 @@
+GET http://localhost:8000/v1/clientsList
+
+
+###
+POST http://localhost:8000/v1/clientsList/createNewCustomer
+Content-Type: application/json
+
+{
+    "userId":"113577393364732277603",
+    "fName": "first name",
+    "lName": "last name",
+    "address": "address"
+}

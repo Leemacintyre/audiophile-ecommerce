@@ -22,19 +22,19 @@ function authFlow(app) {
         COOKIE_KEY_2: process.env.COOKIE_KEY_2,
     };
 
-    // const AUTH_OPTIONS = {
-    //     callbackURL:
-    //         process.env.NODE_ENV === "production"
-    //             ? "https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback"
-    //             : "http://localhost:8000/v1/google/auth/google/callback",
-    //     clientID: config.CLIENT_ID,
-    //     clientSecret: config.CLIENT_SECRET,
-    // };
     const AUTH_OPTIONS = {
-        callbackURL:"https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback",
+        callbackURL:
+            process.env.NODE_ENV === "production"
+                ? "https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback"
+                : "http://localhost:8000/v1/google/auth/google/callback",
         clientID: config.CLIENT_ID,
         clientSecret: config.CLIENT_SECRET,
     };
+    // const AUTH_OPTIONS = {
+    //     callbackURL:"https://the-dealer-portal.herokuapp.com/v1/google/auth/google/callback",
+    //     clientID: config.CLIENT_ID,
+    //     clientSecret: config.CLIENT_SECRET,
+    // };
 
     async function verifyCallback(accessToken, refreshToken, profile, done) {
         const existingUser = await User.findOne({ _id: profile.id });
